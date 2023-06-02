@@ -56,6 +56,7 @@ const observer = new MutationObserver(() => {
 
 function titleQuerySelector() {
     //.recent-item[data-ref*="/"],
+    //div.kef-ae-fav-item-name[title*="/"],
     parent.document.querySelectorAll('div.ls-block a.page-ref[data-ref*="/"],  .foldable-title [data-ref*="/"], li[title*="root/"], a.tag[data-ref*="/"]').forEach((element) => {
         abbreviateNamespace(element as HTMLElement);
     });
