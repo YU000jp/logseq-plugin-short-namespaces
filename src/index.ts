@@ -1,13 +1,10 @@
 import '@logseq/libs'; //https://plugins-doc.logseq.com/
-import { logseq as PL } from "../package.json";
-const pluginId = PL.id; //set plugin id from package.json
 //import { setup as l10nSetup, t } from "logseq-l10n"; //https://github.com/sethyuan/logseq-l10n
 //import ja from "./translations/ja.json";
 
 
 /* main */
 const main = () => {
-    console.info(`#${pluginId}: MAIN`); //console
     // (async () => {
     //     try {
     //         await l10nSetup({ builtinTranslations: { ja } });
@@ -45,7 +42,7 @@ const main = () => {
         attributeFilter: ["class"],
     });
 
-    console.info(`#${pluginId}: loaded`);//console
+    
 };/* end_main */
 
 
