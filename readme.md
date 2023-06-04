@@ -1,6 +1,10 @@
 # Logseq Plugin: Short Namespaces
 
-- Development stage 👷🚧
+- This plugin is providing abbreviated representation for namespaces (hierarchies).
+
+> Development stage 👷🚧
+
+> This plugin still has room for improvement. Please let me know if you encounter any issues or have any ideas for enhancement.
 
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-short-namespaces)](https://github.com/YU000jp/logseq-plugin-short-namespaces/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-short-namespaces?color=blue)](https://github.com/YU000jp/logseq-plugin-short-namespaces/LICENSE)
@@ -29,7 +33,7 @@
 
 ### Usage
 
-- 
+- When this plugin install, the style be applied to journals or the single page , the right sidebar.
 
 ---
 
