@@ -55,7 +55,7 @@
 
 ### Icon
 
-- [icooon-mono.com](https://icooon-mono.com/)
+- [icooon-mono.com](https://icooon-mono.com/12668-%e3%82%b1%e3%83%bc%e3%82%ad%e3%81%ae%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b33/)
 
 ---
 
