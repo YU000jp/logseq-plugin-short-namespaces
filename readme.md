@@ -15,7 +15,7 @@
 
 ## Feature
 
-- 
+- Eliminates hierarchies of more than two levels when displaying them, restoring the original structure upon hovering or clicking for editing.
 
 ## Demo
 
