@@ -51,12 +51,7 @@
 
 - GitHub: [YU000jp](https://github.com/YU000jp)
 
-## Prior art & Credit
-
-### Library
-
-- [@logseq/libs](https://logseq.github.io/plugins/)
-- [logseq-l10n](https://github.com/sethyuan/logseq-l10n)
+## Credit
 
 ### Icon
 
