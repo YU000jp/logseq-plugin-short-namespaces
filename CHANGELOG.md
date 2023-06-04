@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.0.0...v1.0.1) (2023-06-04)
+
+
+### Bug Fixes
+
+* Update dependencies ([851462b](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/851462b0407d241febaf83564654f8822c3c31ea))
+
 # 1.0.0 (2023-06-03)
 
 
