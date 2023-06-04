@@ -31,6 +31,8 @@
 - Select marketplace
 - Type `Short` in the search field, select it from the search results and install
 
+   ![image](https://github.com/YU000jp/logseq-plugin-short-namespaces/assets/111847207/8991dd7e-f3a7-4a44-ba55-c57344f69015)
+
 ### Usage
 
 - When this plugin install, the style be applied to journals or the single page , the right sidebar.
