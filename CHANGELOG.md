@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.0.1...v1.1.0) (2023-06-09)
+
+
+### Features
+
+* Add plugin settings ([8835d29](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/8835d29c95dd358421e3fb108519274d6aead5f6))
+
 ## [1.0.1](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.0.0...v1.0.1) (2023-06-04)
 
 
