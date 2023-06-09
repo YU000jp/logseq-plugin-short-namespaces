@@ -1,6 +1,8 @@
 import '@logseq/libs'; //https://plugins-doc.logseq.com/
+import { LSPluginBaseInfo, SettingSchemaDesc } from '@logseq/libs/dist/LSPlugin.user';
 //import { setup as l10nSetup, t } from "logseq-l10n"; //https://github.com/sethyuan/logseq-l10n
 //import ja from "./translations/ja.json";
+let restore: Boolean = false;
 
 
 /* main */
@@ -9,14 +11,14 @@ const main = () => {
     //     try {
     //         await l10nSetup({ builtinTranslations: { ja } });
     //     } finally {
-    //         /* user settings */
-    //         logseq.useSettingsSchema(settingsTemplate);
-    //         if (!logseq.settings) {
-    //             setTimeout(() => {
-    //                 logseq.showSettingsUI();
-    //             }
-    //                 , 300);
-    //         }
+    /* user settings */
+    logseq.useSettingsSchema(settingsTemplate());
+    if (!logseq.settings) {
+        setTimeout(() => {
+            logseq.showSettingsUI();
+        }
+            , 300);
+    }
     //     }
     // })();
 
@@ -42,7 +44,18 @@ const main = () => {
         attributeFilter: ["class"],
     });
 
-    
+
+    logseq.onSettingsChanged((newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
+        //更新されたら
+        if (newSet !== oldSet) {
+            restoreAllNamespaces();
+        }
+    });
+    logseq.beforeunload(async () => {
+        restoreAllNamespaces();
+        restore = true;
+    });
+
 };/* end_main */
 
 
@@ -59,57 +72,130 @@ function titleQuerySelector() {
     });
 }
 
-
 function abbreviateNamespace(namespaceRef: HTMLElement) {
     if (namespaceRef && !(namespaceRef.dataset!.origText)) {
         const text = namespaceRef.textContent;
-        const testText = namespaceRef.classList.contains("tag")
-            ? text!.substring(1).toLowerCase()
-            : text!.toLowerCase();
+        if (!text) return;
+        const testText = namespaceRef.classList.contains("tag") ? text.substring(1).toLowerCase() : text.toLowerCase();
         if (testText !== namespaceRef.dataset.ref) return;
 
         // Perform collapsing.
         let abbreviatedText;
-        const parts = text!.split('/');
-        if (namespaceRef.classList.contains("tag")) {
-            abbreviatedText = parts.map((part, index, arr) => {
-                if (/^\d+$/.test(part) || index === arr.length - 1 || index === arr.length - 2) {
-                    return part;
-                } else if (index === 0) {
-                    return "#..";//part.substring(0, 2);
-                } else {
-                    return "..";//part.charAt(0);
-                }
-            }).join('/');
-        } else {
-            abbreviatedText = parts.map((part, index, arr) => {
-                if (/^\d+$/.test(part) || index === arr.length - 1 || index === arr.length - 2) {
-                    return part;
-                } else {
-                    return "..";
-                }
-            }).join('/');
+        const parts = text.split('/');
+        let dot = "";
+        if (logseq.settings!.booleanUseDot === true) {
+            dot = "..";
         }
+        abbreviatedText = parts.map((part, index, arr) => {
+            //数字は除外(日付)
+            if (/^\d+$/.test(part) ||
+                index === arr.length - 1 ||
+                (logseq.settings!.eliminatesLevels === "2 levels" && index === arr.length - 2) ||
+                (logseq.settings!.eliminatesLevels === "3 levels" && (index === arr.length - 2 || index === arr.length - 3))) {
+                return part;
+            } else {
+                let tagIF = "";
+                if (index === 0 && namespaceRef.classList.contains("tag")) {
+                    tagIF = "#";
+                }
+                if (logseq.settings!.firstLetter === "The first letter") {
+                    //1文字の場合はdotをつけない
+                    if (part.length <= 1) {
+                        return tagIF + part;
+                    }
+                    return tagIF + part.charAt(0) + dot;
+                } else if (logseq.settings!.firstLetter === "Abbreviate(..)") {
+                    return tagIF + "..";
+                } else if (logseq.settings!.firstLetter === "The first 2 letters") {
+                    //2文字未満の場合はdotをつけない
+                    if (part.length <= 2) {
+                        return tagIF + part;
+                    }
+                    return tagIF + part.substring(0, 2) + dot;
+                } else if (logseq.settings!.firstLetter === "The first 3 letters") {
+                    if (part.length <= 3) {
+                        return tagIF + part;
+                    }
+                    return tagIF + part.substring(0, 3) + dot;
+                } else if (logseq.settings!.firstLetter === "The first 4 letters") {
+                    if (part.length <= 4) {
+                        return tagIF + part;
+                    }
+                    return tagIF + part.substring(0, 4) + dot;
+                } else {
+                    return tagIF + part;
+                }
+            }
+        }).join('/');
         namespaceRef.dataset.origText = text || "";
         namespaceRef.textContent = abbreviatedText;
-
+        const enterHandler = () => {
+            if (restore === false) {
+                namespaceRef.textContent = namespaceRef.dataset.origText || "";
+            }else if(restore === true){
+            //イベントリスナーを削除
+            namespaceRef.removeEventListener('mouseenter', enterHandler);
+            }
+        };
+        const leaveHandler = () => {
+            if (restore === false) {
+                namespaceRef.textContent = abbreviatedText;
+            }else if(restore === true){
+            //イベントリスナーを削除
+            namespaceRef.removeEventListener('mouseleave', leaveHandler);
+            }
+        };
         // Show entire string on hover
-        namespaceRef.addEventListener('mouseenter', () => {
-            namespaceRef.textContent = namespaceRef.dataset.origText || "";
-        });
+        namespaceRef.addEventListener('mouseenter',enterHandler);
+        namespaceRef.addEventListener('mouseleave', leaveHandler);
+    }
+}
 
-        namespaceRef.addEventListener('mouseleave', () => {
-            namespaceRef.textContent = abbreviatedText;
-        });
+
+//元に戻す
+function restoreAllNamespaces() {
+    parent.document.querySelectorAll('div.ls-block a.page-ref[data-ref*="/"], .foldable-title [data-ref*="/"], li[title*="root/"], a.tag[data-ref*="/"]').forEach((element) => {
+        restoreNamespace(element as HTMLElement);
+    });
+}
+
+function restoreNamespace(namespaceRef: HTMLElement) {
+    if (namespaceRef && namespaceRef.dataset!.origText) {
+        namespaceRef.textContent = namespaceRef.dataset.origText;
+        delete namespaceRef.dataset.origText;
     }
 }
 
 
 /* user setting */
 // https://logseq.github.io/plugins/types/SettingSchemaDesc.html
-// const settingsTemplate = [
-
-// ];
-
+const settingsTemplate = (): SettingSchemaDesc[] => [
+    {
+        //option for first letter of Root page name
+        key: "firstLetter",
+        type: "enum",
+        enumChoices: ["Abbreviate(..)", "The first letter", "The first 2 letters", "The first 3 letters", "The first 4 letters"],
+        title: "Show First letter of Root page name",
+        default: "Abbreviate(..)",
+        description: "default: Abbreviate(..)",
+    },
+    {
+        //Eliminates hierarchies of more than two levels
+        key: "eliminatesLevels",
+        type: "enum",
+        enumChoices: ["1 level", "2 levels", "3 levels"],
+        title: "Eliminates hierarchies of more than 2 levels",
+        default: "2 levels",
+        description: "default: 2 levels",
+    },
+    {
+        //Use dot instead of slash
+        key: "booleanUseDot",
+        type: "boolean",
+        title: "Use dot instead of slash",
+        default: true,
+        description: "default: true",
+    },
+];
 
 logseq.ready(main).catch(console.error);
