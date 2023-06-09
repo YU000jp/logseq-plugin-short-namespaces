@@ -1,6 +1,6 @@
 {
     "name": "logseq-plugin-short-namespaces",
-    "description": "This plugin is providing abbreviated representation for namespaces (hierarchies).",
+    "description": "This plugin is providing abbreviated representation for namespaces (hierarchy).",
     "repository": "https://github.com/YU000jp/logseq-plugin-short-namespaces.git",
     "author": "YU000jp",
     "license": "MIT",

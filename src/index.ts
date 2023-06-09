@@ -94,36 +94,33 @@ function abbreviateNamespace(namespaceRef: HTMLElement) {
                 (logseq.settings!.eliminatesLevels === "3 levels" && (index === arr.length - 2 || index === arr.length - 3))) {
                 return part;
             } else {
-                let tagIF = "";
-                if (index === 0 && namespaceRef.classList.contains("tag")) {
-                    tagIF = "#";
-                }
+                //if (index === 0 && namespaceRef.classList.contains("tag")) {
                 if (logseq.settings!.firstLetter === "The first letter") {
                     //1文字の場合はdotをつけない
                     if (part.length <= 1) {
-                        return tagIF + part;
+                        return part;
                     }
-                    return tagIF + part.charAt(0) + dot;
+                    return part.charAt(0) + dot;
                 } else if (logseq.settings!.firstLetter === "Abbreviate(..)") {
-                    return tagIF + "..";
+                    return "..";
                 } else if (logseq.settings!.firstLetter === "The first 2 letters") {
                     //2文字未満の場合はdotをつけない
                     if (part.length <= 2) {
-                        return tagIF + part;
+                        return part;
                     }
-                    return tagIF + part.substring(0, 2) + dot;
+                    return part.substring(0, 2) + dot;
                 } else if (logseq.settings!.firstLetter === "The first 3 letters") {
                     if (part.length <= 3) {
-                        return tagIF + part;
+                        return part;
                     }
-                    return tagIF + part.substring(0, 3) + dot;
+                    return part.substring(0, 3) + dot;
                 } else if (logseq.settings!.firstLetter === "The first 4 letters") {
                     if (part.length <= 4) {
-                        return tagIF + part;
+                        return part;
                     }
-                    return tagIF + part.substring(0, 4) + dot;
+                    return part.substring(0, 4) + dot;
                 } else {
-                    return tagIF + part;
+                    return part;
                 }
             }
         }).join('/');
