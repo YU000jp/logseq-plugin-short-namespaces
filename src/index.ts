@@ -176,7 +176,7 @@ const settingsTemplate = (): SettingSchemaDesc[] => [
         type: "enum",
         enumChoices: ["Abbreviate(..)", "The first letter", "The first 2 letters", "The first 3 letters", "The first 4 letters"],
         title: "Show First letter of Root page name",
-        default: "Abbreviate(..)",
+        default: "The first 2 letters",
         description: "default: Abbreviate(..)",
     },
     {
