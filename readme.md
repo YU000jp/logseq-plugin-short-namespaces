@@ -15,11 +15,12 @@
 
 ## Feature
 
-- Eliminates hierarchies of more than two levels when displaying them, restoring the original structure upon hovering or clicking for editing.
+- Eliminates hierarchies of more than 2 levels when displaying them, restoring the original structure upon hovering or clicking for editing.
 
 ## Demo
 
-![image)](https://user-images.githubusercontent.com/111847207/236656295-e08a249a-95e6-4d94-bc1d-6f644daa20b8.gif)
+![someautomaticmarkdownlink (24)](https://github.com/YU000jp/logseq-plugin-short-namespaces/assets/111847207/f2a7aae1-fc7f-4857-9f7a-af1cdd0b2191)
+
 
 ---
 
@@ -36,6 +37,22 @@
 ### Usage
 
 - When this plugin install, the style be applied to journals or the single page , the right sidebar.
+
+### Plugin Settings
+
+- Show First letter of Root page name: select
+   - `Abbreviate(..)`
+   - `The first letter`
+   - `The first 2 letters` default
+   - `The first 3 letters`
+   - `The first 4 letters`
+- Eliminates hierarchies of more than 2 levels: select
+   - `1 level`
+   - `2 levels` default
+   - `3 levels`
+- Use dot instead of slash: boolean
+   - `true` default
+   - `false`
 
 ---
 
