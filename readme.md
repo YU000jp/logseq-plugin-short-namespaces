@@ -17,8 +17,6 @@
 
 - Eliminates hierarchies of more than 2 levels when displaying them, restoring the original structure upon hovering or clicking for editing.
 
-## Demo
-
 ![someautomaticmarkdownlink (24)](https://github.com/YU000jp/logseq-plugin-short-namespaces/assets/111847207/f2a7aae1-fc7f-4857-9f7a-af1cdd0b2191)
 
 
