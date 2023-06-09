@@ -1,6 +1,6 @@
 # Logseq Plugin: Short Namespaces
 
-- This plugin is providing abbreviated representation for namespaces (hierarchies).
+- This plugin is providing abbreviated representation for namespaces (hierarchy).
 
 > Development stage 👷🚧
 
