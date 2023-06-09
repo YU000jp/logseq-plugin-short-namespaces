@@ -48,7 +48,7 @@
    - `1 level`
    - `2 levels` default
    - `3 levels`
-- Use dot instead of slash: boolean
+- Use dot instead: boolean
    - `true` default
    - `false`
 
