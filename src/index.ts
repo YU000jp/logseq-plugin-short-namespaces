@@ -192,7 +192,7 @@ const settingsTemplate = (): SettingSchemaDesc[] => [
         //Use dot instead of slash
         key: "booleanUseDot",
         type: "boolean",
-        title: "Use dot instead of slash",
+        title: "Use dot instead",
         default: true,
         description: "default: true",
     },
