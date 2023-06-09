@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.1.2...v1.1.3) (2023-06-09)
+
+
+### Bug Fixes
+
+* **bug:** remove for tag ([17ed97f](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/17ed97f44205cb68bfe230b2f62a37ceae57e41d))
+
 ## [1.1.2](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.1.1...v1.1.2) (2023-06-09)
 
 
