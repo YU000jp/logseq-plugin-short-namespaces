@@ -1,4 +1,4 @@
-# Logseq Plugin: Short Namespaces
+# Logseq Plugin: Short Namespaces 🍰
 
 - This plugin is providing abbreviated representation for namespaces (hierarchy).
 
