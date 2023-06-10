@@ -88,7 +88,8 @@ function abbreviateNamespace(namespaceRef: HTMLElement) {
         }
         abbreviatedText = parts.map((part, index, arr) => {
             //数字は除外(日付)
-            if (/^\d+$/.test(part) ||
+            //partに「Fri, 2023」のように曜日と年がある場合は除外
+            if (/^\d+$/.test(part) || /, \d+$/.test(part) ||
                 index === arr.length - 1 ||
                 (logseq.settings!.eliminatesLevels === "2 levels" && index === arr.length - 2) ||
                 (logseq.settings!.eliminatesLevels === "3 levels" && (index === arr.length - 2 || index === arr.length - 3))) {
@@ -129,21 +130,21 @@ function abbreviateNamespace(namespaceRef: HTMLElement) {
         const enterHandler = () => {
             if (restore === false) {
                 namespaceRef.textContent = namespaceRef.dataset.origText || "";
-            }else if(restore === true){
-            //イベントリスナーを削除
-            namespaceRef.removeEventListener('mouseenter', enterHandler);
+            } else if (restore === true) {
+                //イベントリスナーを削除
+                namespaceRef.removeEventListener('mouseenter', enterHandler);
             }
         };
         const leaveHandler = () => {
             if (restore === false) {
                 namespaceRef.textContent = abbreviatedText;
-            }else if(restore === true){
-            //イベントリスナーを削除
-            namespaceRef.removeEventListener('mouseleave', leaveHandler);
+            } else if (restore === true) {
+                //イベントリスナーを削除
+                namespaceRef.removeEventListener('mouseleave', leaveHandler);
             }
         };
         // Show entire string on hover
-        namespaceRef.addEventListener('mouseenter',enterHandler);
+        namespaceRef.addEventListener('mouseenter', enterHandler);
         namespaceRef.addEventListener('mouseleave', leaveHandler);
     }
 }
