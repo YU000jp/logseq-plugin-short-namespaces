@@ -76,17 +76,18 @@ function abbreviateNamespace(namespaceRef: HTMLElement) {
     if (namespaceRef && !(namespaceRef.dataset!.origText)) {
         const text = namespaceRef.textContent;
         if (!text) return;
+        //textに「/」が含まれているかどうか
+        if (!text.includes("/")) return;
         const testText = namespaceRef.classList.contains("tag") ? text.substring(1).toLowerCase() : text.toLowerCase();
         if (testText !== namespaceRef.dataset.ref) return;
 
         // Perform collapsing.
-        let abbreviatedText;
         const parts = text.split('/');
         let dot = "";
         if (logseq.settings!.booleanUseDot === true) {
             dot = "..";
         }
-        abbreviatedText = parts.map((part, index, arr) => {
+        const abbreviatedText = parts.map((part, index, arr) => {
             //数字は除外(日付)
             //partに「Fri, 2023」のように曜日と年がある場合は除外
             if (/^\d+$/.test(part) || /, \d+$/.test(part) ||
