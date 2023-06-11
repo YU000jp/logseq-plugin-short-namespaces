@@ -57,6 +57,7 @@
 ## Contribution
 
 - [Zyrohex](https://gist.github.com/Zyrohex/9782b737f8f7f7bca7b6cc7e7868d793)
+- [Bader](https://discord.com/channels/725182569297215569/896368413243494430/1116515366508711996)
 
 ## Showcase / Questions / Ideas / Help
 
