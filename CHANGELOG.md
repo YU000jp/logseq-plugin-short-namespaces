@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.1.4...v1.1.5) (2023-06-11)
+
+
+### Bug Fixes
+
+* **refactor:** not include non-namespaces ([92363d8](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/92363d8095e13cf81e3bac682335f141f1e564b0))
+
 ## [1.1.4](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.1.3...v1.1.4) (2023-06-10)
 
 
