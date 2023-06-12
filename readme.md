@@ -2,14 +2,12 @@
 
 - This plugin is providing abbreviated representation for namespaces (hierarchy).
 
-> Development stage 👷🚧
-
 > This plugin still has room for improvement. Please let me know if you encounter any issues or have any ideas for enhancement.
 
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-short-namespaces)](https://github.com/YU000jp/logseq-plugin-short-namespaces/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-short-namespaces?color=blue)](https://github.com/YU000jp/logseq-plugin-short-namespaces/LICENSE)
 [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-short-namespaces/total.svg)](https://github.com/YU000jp/logseq-plugin-short-namespaces/releases)
- <!-- Published 2023/06/10 -->
+ Published 2023/06/12
 
 ---
 
@@ -17,20 +15,19 @@
 
 - Eliminates hierarchies of more than 2 levels when displaying them, restoring the original structure upon hovering or clicking for editing.
 
-![someautomaticmarkdownlink (24)](https://github.com/YU000jp/logseq-plugin-short-namespaces/assets/111847207/f2a7aae1-fc7f-4857-9f7a-af1cdd0b2191)
-
+![image](https://github.com/YU000jp/logseq-plugin-short-namespaces/assets/111847207/f2a7aae1-fc7f-4857-9f7a-af1cdd0b2191)
 
 ---
 
 ## Getting Started
 
-### Install from Logseq Marketplace (Coming👷🚧)
+### Install from Logseq Marketplace
 
 - Press [`---`] on the top right toolbar to open [`Plugins`]
 - Select `Marketplace`
 - Type `Short` in the search field, select it from the search results and install
 
-   ![image](https://github.com/YU000jp/logseq-plugin-short-namespaces/assets/111847207/8991dd7e-f3a7-4a44-ba55-c57344f69015)
+   ![image](https://github.com/YU000jp/logseq-plugin-short-namespaces/assets/111847207/c2782452-9254-4cda-9604-5283de136da2)
 
 ### Usage
 
