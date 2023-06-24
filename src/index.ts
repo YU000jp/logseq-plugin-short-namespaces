@@ -13,29 +13,18 @@ const main = () => {
     //     } finally {
     /* user settings */
     logseq.useSettingsSchema(settingsTemplate());
-    if (!logseq.settings) {
-        setTimeout(() => {
-            logseq.showSettingsUI();
-        }
-            , 300);
-    }
+    if (!logseq.settings) setTimeout(() => logseq.showSettingsUI(), 300);
     //     }
     // })();
 
 
     logseq.App.onRouteChanged(async () => {
-        setTimeout(() => {
-            titleQuerySelector();
-        }, 200);
+        setTimeout(() => titleQuerySelector(), 200);
     });
 
 
     logseq.App.onSidebarVisibleChanged(async ({ visible }) => {
-        if (visible === true) {
-            setTimeout(() => {
-                titleQuerySelector();
-            }, 300);
-        }
+        if (visible === true) setTimeout(() => titleQuerySelector(), 300);
     });
 
     observer.observe(parent.document.getElementById("main-content-container") as HTMLDivElement, {
@@ -47,9 +36,7 @@ const main = () => {
 
     logseq.onSettingsChanged((newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
         //更新されたら
-        if (newSet !== oldSet) {
-            restoreAllNamespaces();
-        }
+        if (newSet !== oldSet) restoreAllNamespaces();
     });
     logseq.beforeunload(async () => {
         restoreAllNamespaces();
@@ -59,103 +46,88 @@ const main = () => {
 };/* end_main */
 
 
-const observer = new MutationObserver(() => {
-    titleQuerySelector();
-});
+const observer = new MutationObserver(() => titleQuerySelector());
+const queryAll = 'div#main-content-container a[data-ref*="/"],div#left-sidebar li[data-ref*="/"] span.page-title';
 
+//.recent-item[data-ref*="/"],
+//div.kef-ae-fav-item-name[title*="/"],
+const titleQuerySelector = () => parent.document.querySelectorAll(queryAll).forEach((element) => abbreviateNamespace(element as HTMLElement));
 
-function titleQuerySelector() {
-    //.recent-item[data-ref*="/"],
-    //div.kef-ae-fav-item-name[title*="/"],
-    parent.document.querySelectorAll('div.ls-block a.page-ref[data-ref*="/"],  .foldable-title [data-ref*="/"], li[title*="root/"], a.tag[data-ref*="/"]').forEach((element) => {
-        abbreviateNamespace(element as HTMLElement);
-    });
-}
 
 function abbreviateNamespace(namespaceRef: HTMLElement) {
-    if (namespaceRef && !(namespaceRef.dataset!.origText)) {
-        const text = namespaceRef.textContent;
-        if (!text) return;
-        //textに「/」が含まれているかどうか
-        if (!text.includes("/")) return;
-        const testText = namespaceRef.classList.contains("tag") ? text.substring(1).toLowerCase() : text.toLowerCase();
-        if (testText !== namespaceRef.dataset.ref) return;
-
-        // Perform collapsing.
-        const parts = text.split('/');
-        let dot = "";
-        if (logseq.settings!.booleanUseDot === true) {
-            dot = "..";
-        }
-        const abbreviatedText = parts.map((part, index, arr) => {
-            //数字は除外(日付)
-            //partに「Fri, 2023」のように曜日と年がある場合は除外
-            if (/^\d+$/.test(part) || /, \d+$/.test(part) ||
-                index === arr.length - 1 ||
-                (logseq.settings!.eliminatesLevels === "2 levels" && index === arr.length - 2) ||
-                (logseq.settings!.eliminatesLevels === "3 levels" && (index === arr.length - 2 || index === arr.length - 3))) {
-                return part;
+    if (!namespaceRef || (namespaceRef.dataset!.origText)) return;
+    const text = namespaceRef.textContent;
+    if (!text || !text.includes("/")) return;//textに「/」が含まれているかどうか
+    // Perform collapsing.
+    let dot = "";
+    if (logseq.settings!.booleanUseDot === true) dot = "..";
+    const abbreviatedText = (text.split('/')).map((part, index, arr) => {
+        //数字は除外(日付)
+        //partに「Fri, 2023」のように曜日と年がある場合は除外
+        if (/^\d+$/.test(part)
+            || /, \d+$/.test(part)
+            || index === arr.length - 1
+            || (logseq.settings!.eliminatesLevels === "2 levels"
+                && index === arr.length - 2)
+            || (
+                logseq.settings!.eliminatesLevels === "3 levels"
+                && (
+                    index === arr.length - 2
+                    || index === arr.length - 3
+                )
+            )
+        ) {
+            return part;
+        } else {
+            //if (index === 0 && namespaceRef.classList.contains("tag")) {
+            if (logseq.settings!.firstLetter === "The first letter") {
+                //1文字の場合はdotをつけない
+                if (part.length <= 1) return part;
+                return part.charAt(0) + dot;
+            } else if (logseq.settings!.firstLetter === "Abbreviate(..)") {
+                return "..";
+            } else if (logseq.settings!.firstLetter === "The first 2 letters") {
+                //2文字未満の場合はdotをつけない
+                if (part.length <= 2) return part;
+                return part.substring(0, 2) + dot;
+            } else if (logseq.settings!.firstLetter === "The first 3 letters") {
+                if (part.length <= 3) return part;
+                return part.substring(0, 3) + dot;
+            } else if (logseq.settings!.firstLetter === "The first 4 letters") {
+                if (part.length <= 4) return part;
+                return part.substring(0, 4) + dot;
             } else {
-                //if (index === 0 && namespaceRef.classList.contains("tag")) {
-                if (logseq.settings!.firstLetter === "The first letter") {
-                    //1文字の場合はdotをつけない
-                    if (part.length <= 1) {
-                        return part;
-                    }
-                    return part.charAt(0) + dot;
-                } else if (logseq.settings!.firstLetter === "Abbreviate(..)") {
-                    return "..";
-                } else if (logseq.settings!.firstLetter === "The first 2 letters") {
-                    //2文字未満の場合はdotをつけない
-                    if (part.length <= 2) {
-                        return part;
-                    }
-                    return part.substring(0, 2) + dot;
-                } else if (logseq.settings!.firstLetter === "The first 3 letters") {
-                    if (part.length <= 3) {
-                        return part;
-                    }
-                    return part.substring(0, 3) + dot;
-                } else if (logseq.settings!.firstLetter === "The first 4 letters") {
-                    if (part.length <= 4) {
-                        return part;
-                    }
-                    return part.substring(0, 4) + dot;
-                } else {
-                    return part;
-                }
+                return part;
             }
-        }).join('/');
-        namespaceRef.dataset.origText = text || "";
-        namespaceRef.textContent = abbreviatedText;
-        const enterHandler = () => {
-            if (restore === false) {
-                namespaceRef.textContent = namespaceRef.dataset.origText || "";
-            } else if (restore === true) {
-                //イベントリスナーを削除
-                namespaceRef.removeEventListener('mouseenter', enterHandler);
-            }
-        };
-        const leaveHandler = () => {
-            if (restore === false) {
-                namespaceRef.textContent = abbreviatedText;
-            } else if (restore === true) {
-                //イベントリスナーを削除
-                namespaceRef.removeEventListener('mouseleave', leaveHandler);
-            }
-        };
-        // Show entire string on hover
-        namespaceRef.addEventListener('mouseenter', enterHandler);
-        namespaceRef.addEventListener('mouseleave', leaveHandler);
-    }
+        }
+    }).join('/');
+    namespaceRef.dataset.origText = text || "";
+    namespaceRef.textContent = abbreviatedText;
+    const enterHandler = () => {
+        if (restore === false) {
+            namespaceRef.textContent = namespaceRef.dataset.origText || "";
+        } else if (restore === true) {
+            //イベントリスナーを削除
+            namespaceRef.removeEventListener('mouseenter', enterHandler);
+        }
+    };
+    const leaveHandler = () => {
+        if (restore === false) {
+            namespaceRef.textContent = abbreviatedText;
+        } else if (restore === true) {
+            //イベントリスナーを削除
+            namespaceRef.removeEventListener('mouseleave', leaveHandler);
+        }
+    };
+    // Show entire string on hover
+    namespaceRef.addEventListener('mouseenter', enterHandler);
+    namespaceRef.addEventListener('mouseleave', leaveHandler);
 }
 
 
 //元に戻す
 function restoreAllNamespaces() {
-    parent.document.querySelectorAll('div.ls-block a.page-ref[data-ref*="/"], .foldable-title [data-ref*="/"], li[title*="root/"], a.tag[data-ref*="/"]').forEach((element) => {
-        restoreNamespace(element as HTMLElement);
-    });
+    parent.document.querySelectorAll(queryAll).forEach((element) => restoreNamespace(element as HTMLElement));
 }
 
 function restoreNamespace(namespaceRef: HTMLElement) {
