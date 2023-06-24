@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.1.5...v1.2.0) (2023-06-24)
+
+
+### Features
+
+* Support left sidebar ([9604f29](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/9604f2970da4949b92728a2ecab35e1aa2df3e55))
+
 ## [1.1.5](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.1.4...v1.1.5) (2023-06-11)
 
 
