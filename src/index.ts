@@ -47,7 +47,7 @@ const main = () => {
 
 
 const observer = new MutationObserver(() => titleQuerySelector());
-const queryAll = 'div#main-content-container a[data-ref*="/"],div#left-sidebar li[data-ref*="/"] span.page-title';
+const queryAll = 'div:is(#main-content-container,#right-sidebar) a[data-ref*="/"],div#left-sidebar li[data-ref*="/"] span.page-title';
 
 //.recent-item[data-ref*="/"],
 //div.kef-ae-fav-item-name[title*="/"],
@@ -148,7 +148,7 @@ const settingsTemplate = (): SettingSchemaDesc[] => [
         enumChoices: ["Abbreviate(..)", "The first letter", "The first 2 letters", "The first 3 letters", "The first 4 letters"],
         title: "Show First letter of Root page name",
         default: "The first 2 letters",
-        description: "default: Abbreviate(..)",
+        description: "default: The first 2 letters",
     },
     {
         //Eliminates hierarchies of more than two levels
