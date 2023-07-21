@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.2.1...v1.2.2) (2023-07-21)
+
+
+### Bug Fixes
+
+* **bug:** The bug of not abbreviated text ([12a13cf](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/12a13cfcf2789fe25d5f785c89a997c37f723efa))
+
 ## [1.2.1](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.2.0...v1.2.1) (2023-06-30)
 
 
