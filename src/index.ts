@@ -101,6 +101,7 @@ function abbreviateNamespace(namespaceRef: HTMLElement) {
             }
         }
     }).join('/');
+    if(abbreviatedText === text) return;
     namespaceRef.dataset.origText = text || "";
     namespaceRef.textContent = abbreviatedText;
     const enterHandler = () => {
