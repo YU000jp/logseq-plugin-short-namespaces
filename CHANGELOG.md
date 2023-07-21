@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.2.2...v1.3.0) (2023-07-21)
+
+
+### Features
+
+* **Add:** On Linked References ([1dd0d88](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/1dd0d8870e2dfb4a2191ef0ad431e95d99883293))
+
 ## [1.2.2](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.2.1...v1.2.2) (2023-07-21)
 
 
