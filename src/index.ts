@@ -32,6 +32,12 @@ const main = () => {
         subtree: true,
         attributeFilter: ["class"],
     });
+    observer.observe(parent.document.getElementById("right-sidebar") as HTMLDivElement, {
+        attributes: true,
+        subtree: true,
+        attributeFilter: ["class"],
+    });
+
 
 
     logseq.onSettingsChanged((newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
