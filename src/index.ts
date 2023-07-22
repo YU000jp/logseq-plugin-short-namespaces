@@ -47,7 +47,7 @@ const main = () => {
 
 
 const observer = new MutationObserver(() => titleQuerySelector());
-const queryAll = 'div:is(#main-content-container,#right-sidebar) :is(a[data-ref],span[data-ref]),div#left-sidebar li[data-ref*="/"] span.page-title';
+const queryAll = 'div:is(#main-content-container,#right-sidebar) a[data-ref],div#left-sidebar li[data-ref*="/"] span.page-title';
 
 //.recent-item[data-ref*="/"],
 //div.kef-ae-fav-item-name[title*="/"],
