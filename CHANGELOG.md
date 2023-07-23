@@ -1,3 +1,11 @@
+## [1.3.1](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.3.0...v1.3.1) (2023-07-23)
+
+
+### Bug Fixes
+
+* **bug:** cannot open link ([3c840d3](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/3c840d32fbeadba6325c62e01fd6d722401c528f))
+* **refactor:** check right sidebar ([aa09f4b](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/aa09f4b1636f3690edffbdd3f9ef75d086ac1ec5))
+
 # [1.3.0](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.2.2...v1.3.0) (2023-07-21)
 
 
