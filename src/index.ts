@@ -73,8 +73,10 @@ function abbreviateNamespace(namespaceRef: HTMLElement) {
         if (/^\d+$/.test(part)
             || /, \d+$/.test(part)
             || index === arr.length - 1
-            || (logseq.settings!.eliminatesLevels === "2 levels"
-                && index === arr.length - 2)
+            || (
+                logseq.settings!.eliminatesLevels === "2 levels"
+                && index === arr.length - 2
+            )
             || (
                 logseq.settings!.eliminatesLevels === "3 levels"
                 && (
@@ -85,29 +87,29 @@ function abbreviateNamespace(namespaceRef: HTMLElement) {
         ) {
             return part;
         } else {
-            //if (index === 0 && namespaceRef.classList.contains("tag")) {
-            if (logseq.settings!.firstLetter === "The first letter") {
-                //1文字の場合はdotをつけない
-                if (part.length <= 1) return part;
-                return part.charAt(0) + dot;
-            } else if (logseq.settings!.firstLetter === "Abbreviate(..)") {
-                return "..";
-            } else if (logseq.settings!.firstLetter === "The first 2 letters") {
-                //2文字未満の場合はdotをつけない
-                if (part.length <= 2) return part;
-                return part.substring(0, 2) + dot;
-            } else if (logseq.settings!.firstLetter === "The first 3 letters") {
-                if (part.length <= 3) return part;
-                return part.substring(0, 3) + dot;
-            } else if (logseq.settings!.firstLetter === "The first 4 letters") {
-                if (part.length <= 4) return part;
-                return part.substring(0, 4) + dot;
-            } else {
-                return part;
+            switch (logseq.settings!.firstLetter) {
+                case "The first letter":
+                    //1文字の場合はdotをつけない
+                    if (part.length <= 1) return part;
+                    return part.charAt(0) + dot;
+                case "Abbreviate(..)":
+                    return "..";
+                case "The first 2 letters":
+                    //2文字未満の場合はdotをつけない
+                    if (part.length <= 2) return part;
+                    return part.substring(0, 2) + dot;
+                case "The first 3 letters":
+                    if (part.length <= 3) return part;
+                    return part.substring(0, 3) + dot;
+                case "The first 4 letters":
+                    if (part.length <= 4) return part;
+                    return part.substring(0, 4) + dot;
+                default:
+                    return part;
             }
         }
     }).join('/');
-    if(abbreviatedText === text) return;
+    if (abbreviatedText === text) return;
     namespaceRef.dataset.origText = text || "";
     namespaceRef.textContent = abbreviatedText;
     const enterHandler = () => {
