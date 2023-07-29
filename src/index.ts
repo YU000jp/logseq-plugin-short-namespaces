@@ -103,6 +103,8 @@ function abbreviateNamespace(namespaceRef: HTMLElement) {
 
 
 const getIcon = async (namespaceRef, parent: string): Promise<void> => {
+    //parentの先頭に#ある場合は削除
+    if (parent.startsWith("#")) parent = parent.slice(1);
     const page = await logseq.Editor.getPage(parent) as PageEntity;
     if (page && page.properties?.icon) {
         if (namespaceRef.dataset.icon) return;//非同期処理のため必要。既にアイコンがある場合は処理しない
