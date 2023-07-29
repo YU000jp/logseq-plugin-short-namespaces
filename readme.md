@@ -11,9 +11,9 @@
 
 ## Features
 
-### Eliminates hierarchies
+### Shorten the hierarchy
 
-- When displaying links, eliminates hierarchies. And restoring the original structure upon hovering or clicking for editing.
+- If there are hierarchical links, shorten them, and restore the original structure upon hovering or clicking for editing.
 
   ![image](https://github.com/YU000jp/logseq-plugin-short-namespaces/assets/111847207/f2a7aae1-fc7f-4857-9f7a-af1cdd0b2191)
 
