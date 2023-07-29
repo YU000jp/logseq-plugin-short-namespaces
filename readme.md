@@ -34,18 +34,21 @@
 ### Plugin Settings
 
 - Show First letter of Root page name: select
-   - `Abbreviate(..)`
-   - `The first letter`
-   - `The first 2 letters` default
-   - `The first 3 letters`
-   - `The first 4 letters`
+  - `Abbreviate(..)`
+  - `The first letter`
+  - `The first 2 letters` default
+  - `The first 3 letters`
+  - `The first 4 letters`
 - Eliminates hierarchies of more than 2 levels: select
-   - `1 level`
-   - `2 levels` default
-   - `3 levels`
+  - `1 level`
+  - `2 levels` default
+  - `3 levels`
 - Use dot instead: boolean
-   - `true` default
-   - `false`
+  - `true` default
+  - `false`
+- Enable display icon only for the first parent page [#15](https://github.com/YU000jp/logseq-plugin-short-namespaces/issues/15) [#18](https://github.com/YU000jp/logseq-plugin-short-namespaces/issues/18) 🆕
+  - `true`
+  - `false` default 
 
 ---
 
