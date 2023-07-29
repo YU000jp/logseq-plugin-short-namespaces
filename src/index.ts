@@ -73,8 +73,9 @@ function abbreviateNamespace(namespaceRef: HTMLElement) {
     if (!text || !text.includes("/")) return;//textに「/」が含まれているかどうか
     // Perform collapsing.
     const splitText = text.split('/') as Array<string>;
-    if (logseq.settings!.iconMode !== "false" && !namespaceRef.dataset.icon) getIcon(namespaceRef, splitText[0] as string);
-    const abbreviatedText = abbreviated(namespaceRef,splitText, logseq.settings!.booleanUseDot === true ? ".." : "") as string;
+    if (logseq.settings!.iconMode !== "false"
+        && !namespaceRef.dataset.icon) getIcon(namespaceRef, splitText[0] as string);
+    const abbreviatedText = abbreviated(namespaceRef, splitText, logseq.settings!.booleanUseDot === true ? ".." : "") as string;
     if (abbreviatedText === text) return;
 
     namespaceRef.dataset.origText = text || "";
@@ -104,60 +105,54 @@ function abbreviateNamespace(namespaceRef: HTMLElement) {
 const getIcon = async (namespaceRef, parent: string): Promise<void> => {
     const page = await logseq.Editor.getPage(parent) as PageEntity;
     if (page && page.properties?.icon) {
-        if(namespaceRef.dataset.icon) return;//非同期処理のため必要。既にアイコンがある場合は処理しない
+        if (namespaceRef.dataset.icon) return;//非同期処理のため必要。既にアイコンがある場合は処理しない
         namespaceRef.insertAdjacentHTML("beforebegin", page.properties.icon as string);
         namespaceRef.dataset.icon = page.properties.icon as string;
     }
 
 };
 
-const abbreviated = (namespaceRef:HTMLElement,text: Array<string>, dot: string): string =>
-    text.map((part, index, arr) => {
-        //数字は除外(日付)
-        //partに「Fri, 2023」のように曜日と年がある場合は除外
-        if (/^\d+$/.test(part)
-            || /, \d+$/.test(part)) {
-            return part;
-        } else
-            if (logseq.settings!.iconMode === "icon only" && index === 0 && namespaceRef.dataset.icon) {
-                return  "";
+const abbreviated = (namespaceRef: HTMLElement, text: Array<string>, dot: string): string =>
+        text.map((part, index, arr) => {
+            //数字は除外(日付)
+            //partに「Fri, 2023」のように曜日と年がある場合は除外
+            if (/^\d+$/.test(part)
+                || /, \d+$/.test(part)) {
+                return part;
             } else
-                if (index === arr.length - 1
-                    || (
-                        logseq.settings!.eliminatesLevels === "2 levels"
-                        && index === arr.length - 2
-                    )
-                    || (
-                        logseq.settings!.eliminatesLevels === "3 levels"
-                        && (
-                            index === arr.length - 2
-                            || index === arr.length - 3
-                        )
-                    )
-                ) {
-                    return part;
-                } else {
-                    switch (logseq.settings!.firstLetter) {
-                        case "The first letter":
-                            if (part.length <= 1) return part;//1文字の場合はdotをつけない
-                            return part.charAt(0) + dot;
-                        case "Abbreviate(..)":
-                            return "..";
-                        case "The first 2 letters":
-                            if (part.length <= 2) return part;//2文字未満の場合はdotをつけない
-                            return part.substring(0, 2) + dot;
-                        case "The first 3 letters":
-                            if (part.length <= 3) return part;
-                            return part.substring(0, 3) + dot;
-                        case "The first 4 letters":
-                            if (part.length <= 4) return part;
-                            return part.substring(0, 4) + dot;
-                        default:
-                            return part;
+                if (logseq.settings!.iconMode === "icon only" && index === arr.length && namespaceRef.dataset.icon) {
+                    return "";
+                } else
+                    if ((index === arr.length - 1
+                        || (logseq.settings!.eliminatesLevels === "2 levels"
+                            && index === arr.length - 2)
+                        || (
+                            logseq.settings!.eliminatesLevels === "3 levels"
+                            && (index === arr.length - 2
+                                || index === arr.length - 3))
+                    )) {
+                        return part;
+                    } else {
+                        switch (logseq.settings!.firstLetter) {
+                            case "The first letter":
+                                if (part.length <= 1) return part;//1文字の場合はdotをつけない
+                                return part.charAt(0) + dot;
+                            case "Abbreviate(..)":
+                                return "..";
+                            case "The first 2 letters":
+                                if (part.length <= 2) return part;//2文字未満の場合はdotをつけない
+                                return part.substring(0, 2) + dot;
+                            case "The first 3 letters":
+                                if (part.length <= 3) return part;
+                                return part.substring(0, 3) + dot;
+                            case "The first 4 letters":
+                                if (part.length <= 4) return part;
+                                return part.substring(0, 4) + dot;
+                            default:
+                                return part;
+                        }
                     }
-                }
-    }).join('/');
-
+        }).join('/');
 //元に戻す
 function restoreAllNamespaces() {
     parent.document.querySelectorAll(queryAll).forEach((element) => restoreNamespace(element as HTMLElement));
