@@ -72,12 +72,11 @@ function abbreviateNamespace(namespaceRef: HTMLElement) {
     const text = namespaceRef.textContent;
     if (!text || !text.includes("/")) return;//textに「/」が含まれているかどうか
     // Perform collapsing.
-
     const splitText = text.split('/') as Array<string>;
-    const abbreviatedText = abbreviated(splitText, logseq.settings!.booleanUseDot === true ? ".." : "") as string;
-    if (abbreviatedText === text) return;
-    console.log(abbreviatedText);
     if (logseq.settings!.iconMode !== "false" && !namespaceRef.dataset.icon) getIcon(namespaceRef, splitText[0] as string);
+    const abbreviatedText = abbreviated(namespaceRef,splitText, logseq.settings!.booleanUseDot === true ? ".." : "") as string;
+    if (abbreviatedText === text) return;
+
     namespaceRef.dataset.origText = text || "";
     namespaceRef.textContent = abbreviatedText;
     const enterHandler = () => {
@@ -105,13 +104,14 @@ function abbreviateNamespace(namespaceRef: HTMLElement) {
 const getIcon = async (namespaceRef, parent: string): Promise<void> => {
     const page = await logseq.Editor.getPage(parent) as PageEntity;
     if (page && page.properties?.icon) {
+        if(namespaceRef.dataset.icon) return;//非同期処理のため必要。既にアイコンがある場合は処理しない
         namespaceRef.insertAdjacentHTML("beforebegin", page.properties.icon as string);
         namespaceRef.dataset.icon = page.properties.icon as string;
     }
 
 };
 
-const abbreviated = (text: Array<string>, dot: string): string =>
+const abbreviated = (namespaceRef:HTMLElement,text: Array<string>, dot: string): string =>
     text.map((part, index, arr) => {
         //数字は除外(日付)
         //partに「Fri, 2023」のように曜日と年がある場合は除外
@@ -120,7 +120,7 @@ const abbreviated = (text: Array<string>, dot: string): string =>
             return part;
         } else
             if (logseq.settings!.iconMode === "icon only" && index === 0) {
-                return "";
+                return (namespaceRef.dataset.icon) ? "" : part;
             } else
                 if (index === arr.length - 1
                     || (
