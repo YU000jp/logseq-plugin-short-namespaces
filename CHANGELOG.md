@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.4.1...v1.4.2) (2023-07-29)
+
+
+### Bug Fixes
+
+* **bug:** Icon mode ([ce7033f](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/ce7033f6038c06935daa5fdbf7a2db9d8d784446))
+
 ## [1.4.1](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.4.0...v1.4.1) (2023-07-29)
 
 
