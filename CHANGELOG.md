@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.3.1...v1.4.0) (2023-07-29)
+
+
+### Features
+
+* **Add:** `Enable display icon only for the first parent page` to plugin settings ([18b9e05](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/18b9e052e68e85c5c791290355dc099f8c24f84b))
+
 ## [1.3.1](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.3.0...v1.3.1) (2023-07-23)
 
 
