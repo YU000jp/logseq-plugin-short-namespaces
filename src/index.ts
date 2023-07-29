@@ -120,9 +120,9 @@ const abbreviated = (namespaceRef: HTMLElement, text: Array<string>, dot: string
                 || /, \d+$/.test(part)) {
                 return part;
             } else
-                if (logseq.settings!.iconMode === "icon only" && index === arr.length && namespaceRef.dataset.icon) {
-                    return "";
-                } else
+                // if (logseq.settings!.iconMode === "icon only" && index === arr.length && namespaceRef.dataset.icon) {
+                //     return "";
+                // } else
                     if ((index === arr.length - 1
                         || (logseq.settings!.eliminatesLevels === "2 levels"
                             && index === arr.length - 2)
@@ -201,7 +201,7 @@ const settingsTemplate = (): SettingSchemaDesc[] => [
         //先頭の親ページのみアイコンを表示す親
         title: "Enable display icon only for the first parent page",
         default: false,
-        enumChoices: ["false", "icon only", "icon and text"],
+        enumChoices: ["false", "icon and text"],//icon only
         description: "default: false (⚠️need to turn off this plugin or restart Logseq to take effect)",
     },
 ];
