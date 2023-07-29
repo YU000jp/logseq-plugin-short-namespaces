@@ -119,8 +119,8 @@ const abbreviated = (namespaceRef:HTMLElement,text: Array<string>, dot: string):
             || /, \d+$/.test(part)) {
             return part;
         } else
-            if (logseq.settings!.iconMode === "icon only" && index === 0) {
-                return (namespaceRef.dataset.icon) ? "" : part;
+            if (logseq.settings!.iconMode === "icon only" && index === 0 && namespaceRef.dataset.icon) {
+                return  "";
             } else
                 if (index === arr.length - 1
                     || (
@@ -207,7 +207,7 @@ const settingsTemplate = (): SettingSchemaDesc[] => [
         title: "Enable display icon only for the first parent page",
         default: "true",
         enumChoices: ["false", "icon only", "icon and text"],
-        description: "default: true",
+        description: "default: true (⚠️need to turn off this plugin or restart Logseq to take effect)",
     },
 ];
 
