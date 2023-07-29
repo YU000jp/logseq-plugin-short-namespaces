@@ -45,7 +45,7 @@ const main = () => {
 const observer = new MutationObserver(async () => {
     observer.disconnect();
     await titleQuerySelector();
-    setTimeout(() => observerMainRight(), 10000);
+    setTimeout(() => observerMainRight(), 500);
 }
 );
 const queryAll = 'div:is(#main-content-container,#right-sidebar) a[data-ref*="/"],div#left-sidebar li[data-ref*="/"] span.page-title';
@@ -57,7 +57,7 @@ const titleQuerySelector = async (): Promise<void> => {
     if (processingTitleQuery === true) return;
     processingTitleQuery = true;
     parent.document.querySelectorAll(queryAll).forEach((element) => abbreviateNamespace(element as HTMLElement))
-    //parent.document.querySelectorAll('div:is(#main-content-container,#right-sidebar) a.page-ref:not([data-ref*="/"])').forEach((element) => SetLinksIconWithoutHierarchy(element as HTMLElement))
+    parent.document.querySelectorAll('div:is(#main-content-container,#right-sidebar) a.page-ref:not([data-ref*="/"])').forEach((element) => SetLinksIconWithoutHierarchy(element as HTMLElement))
     processingTitleQuery = false;
 };
 
@@ -171,7 +171,6 @@ async function SetLinksIconWithoutHierarchy(elementRef: HTMLElement): Promise<vo
     let text = elementRef.textContent;
     if (!text || text.includes("/")) return;
     if (text.startsWith("#")) text = text.slice(1);
-    console.log(text);
     const page = await logseq.Editor.getPage(text) as PageEntity;
     if (!page || !page.properties?.icon) return;
     if (elementRef.dataset.icon) return;//非同期処理のため必要。既にアイコンがある場合は処理しない
