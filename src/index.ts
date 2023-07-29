@@ -200,9 +200,9 @@ const settingsTemplate = (): SettingSchemaDesc[] => [
         type: "enum",
         //先頭の親ページのみアイコンを表示す親
         title: "Enable display icon only for the first parent page",
-        default: "true",
+        default: false,
         enumChoices: ["false", "icon only", "icon and text"],
-        description: "default: true (⚠️need to turn off this plugin or restart Logseq to take effect)",
+        description: "default: false (⚠️need to turn off this plugin or restart Logseq to take effect)",
     },
 ];
 
