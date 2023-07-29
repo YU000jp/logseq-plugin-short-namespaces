@@ -1,5 +1,5 @@
 import '@logseq/libs'; //https://plugins-doc.logseq.com/
-import { LSPluginBaseInfo, SettingSchemaDesc } from '@logseq/libs/dist/LSPlugin.user';
+import { LSPluginBaseInfo, PageEntity, SettingSchemaDesc } from '@logseq/libs/dist/LSPlugin.user';
 //import { setup as l10nSetup, t } from "logseq-l10n"; //https://github.com/sethyuan/logseq-l10n
 //import ja from "./translations/ja.json";
 let restore: Boolean = false;
@@ -27,17 +27,18 @@ const main = () => {
         if (visible === true) setTimeout(() => titleQuerySelector(), 300);
     });
 
-    observer.observe(parent.document.getElementById("main-content-container") as HTMLDivElement, {
-        attributes: true,
-        subtree: true,
-        attributeFilter: ["class"],
-    });
-    observer.observe(parent.document.getElementById("right-sidebar") as HTMLDivElement, {
-        attributes: true,
-        subtree: true,
-        attributeFilter: ["class"],
-    });
-
+    setTimeout(() => {
+        observer.observe(parent.document.getElementById("main-content-container") as HTMLDivElement, {
+            attributes: true,
+            subtree: true,
+            attributeFilter: ["class"],
+        });
+        observer.observe(parent.document.getElementById("right-sidebar") as HTMLDivElement, {
+            attributes: true,
+            subtree: true,
+            attributeFilter: ["class"],
+        });
+    }, 10);
 
 
     logseq.onSettingsChanged((newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
@@ -53,11 +54,17 @@ const main = () => {
 
 
 const observer = new MutationObserver(() => titleQuerySelector());
-const queryAll = 'div:is(#main-content-container,#right-sidebar) a[data-ref],div#left-sidebar li[data-ref*="/"] span.page-title';
+const queryAll = 'div:is(#main-content-container,#right-sidebar) a[data-ref*="/"],div#left-sidebar li[data-ref*="/"] span.page-title';
 
 //.recent-item[data-ref*="/"],
 //div.kef-ae-fav-item-name[title*="/"],
-const titleQuerySelector = () => parent.document.querySelectorAll(queryAll).forEach((element) => abbreviateNamespace(element as HTMLElement));
+let processingTitleQuery: boolean = false;
+const titleQuerySelector = () => {
+    if (processingTitleQuery === true) return;
+    processingTitleQuery = true;
+    parent.document.querySelectorAll(queryAll).forEach((element) => abbreviateNamespace(element as HTMLElement))
+    processingTitleQuery = false;
+};
 
 
 function abbreviateNamespace(namespaceRef: HTMLElement) {
@@ -65,51 +72,12 @@ function abbreviateNamespace(namespaceRef: HTMLElement) {
     const text = namespaceRef.textContent;
     if (!text || !text.includes("/")) return;//textに「/」が含まれているかどうか
     // Perform collapsing.
-    let dot = "";
-    if (logseq.settings!.booleanUseDot === true) dot = "..";
-    const abbreviatedText = (text.split('/')).map((part, index, arr) => {
-        //数字は除外(日付)
-        //partに「Fri, 2023」のように曜日と年がある場合は除外
-        if (/^\d+$/.test(part)
-            || /, \d+$/.test(part)
-            || index === arr.length - 1
-            || (
-                logseq.settings!.eliminatesLevels === "2 levels"
-                && index === arr.length - 2
-            )
-            || (
-                logseq.settings!.eliminatesLevels === "3 levels"
-                && (
-                    index === arr.length - 2
-                    || index === arr.length - 3
-                )
-            )
-        ) {
-            return part;
-        } else {
-            switch (logseq.settings!.firstLetter) {
-                case "The first letter":
-                    //1文字の場合はdotをつけない
-                    if (part.length <= 1) return part;
-                    return part.charAt(0) + dot;
-                case "Abbreviate(..)":
-                    return "..";
-                case "The first 2 letters":
-                    //2文字未満の場合はdotをつけない
-                    if (part.length <= 2) return part;
-                    return part.substring(0, 2) + dot;
-                case "The first 3 letters":
-                    if (part.length <= 3) return part;
-                    return part.substring(0, 3) + dot;
-                case "The first 4 letters":
-                    if (part.length <= 4) return part;
-                    return part.substring(0, 4) + dot;
-                default:
-                    return part;
-            }
-        }
-    }).join('/');
+
+    const splitText = text.split('/') as Array<string>;
+    const abbreviatedText = abbreviated(splitText, logseq.settings!.booleanUseDot === true ? ".." : "") as string;
     if (abbreviatedText === text) return;
+    console.log(abbreviatedText);
+    if (logseq.settings!.iconMode !== "false" && !namespaceRef.dataset.icon) getIcon(namespaceRef, splitText[0] as string);
     namespaceRef.dataset.origText = text || "";
     namespaceRef.textContent = abbreviatedText;
     const enterHandler = () => {
@@ -133,6 +101,60 @@ function abbreviateNamespace(namespaceRef: HTMLElement) {
     namespaceRef.addEventListener('mouseleave', leaveHandler);
 }
 
+
+const getIcon = async (namespaceRef, parent: string): Promise<void> => {
+    const page = await logseq.Editor.getPage(parent) as PageEntity;
+    if (page && page.properties?.icon) {
+        namespaceRef.insertAdjacentHTML("beforebegin", page.properties.icon as string);
+        namespaceRef.dataset.icon = page.properties.icon as string;
+    }
+
+};
+
+const abbreviated = (text: Array<string>, dot: string): string =>
+    text.map((part, index, arr) => {
+        //数字は除外(日付)
+        //partに「Fri, 2023」のように曜日と年がある場合は除外
+        if (logseq.settings!.iconMode === "icon only" && index === 0) {
+            return "";
+        } else
+            if (/^\d+$/.test(part)
+                || /, \d+$/.test(part)
+                || index === arr.length - 1
+                || (
+                    logseq.settings!.eliminatesLevels === "2 levels"
+                    && index === arr.length - 2
+                )
+                || (
+                    logseq.settings!.eliminatesLevels === "3 levels"
+                    && (
+                        index === arr.length - 2
+                        || index === arr.length - 3
+                    )
+                )
+            ) {
+                return part;
+            } else {
+                switch (logseq.settings!.firstLetter) {
+                    case "The first letter":
+                        if (part.length <= 1) return part;//1文字の場合はdotをつけない
+                        return part.charAt(0) + dot;
+                    case "Abbreviate(..)":
+                        return "..";
+                    case "The first 2 letters":
+                        if (part.length <= 2) return part;//2文字未満の場合はdotをつけない
+                        return part.substring(0, 2) + dot;
+                    case "The first 3 letters":
+                        if (part.length <= 3) return part;
+                        return part.substring(0, 3) + dot;
+                    case "The first 4 letters":
+                        if (part.length <= 4) return part;
+                        return part.substring(0, 4) + dot;
+                    default:
+                        return part;
+                }
+            }
+    }).join('/');
 
 //元に戻す
 function restoreAllNamespaces() {
@@ -174,6 +196,15 @@ const settingsTemplate = (): SettingSchemaDesc[] => [
         type: "boolean",
         title: "Use dot instead",
         default: true,
+        description: "default: true",
+    },
+    {//Enable Icon mode
+        key: "iconMode",
+        type: "enum",
+        //先頭の親ページのみアイコンを表示す親
+        title: "Enable display icon only for the first parent page",
+        default: "true",
+        enumChoices: ["false", "icon only", "icon and text"],
         description: "default: true",
     },
 ];
