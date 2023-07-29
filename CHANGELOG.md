@@ -1,3 +1,15 @@
+# [1.5.0](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.4.5...v1.5.0) (2023-07-29)
+
+
+### Bug Fixes
+
+* **refactor:** MutationObserver ([da984c9](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/da984c957fb3fdbbecbf2ebd94836c181d5f0679))
+
+
+### Features
+
+* **Add:** Links support icon mode without hierarchy ([9aecc07](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/9aecc0795f0ec6ea7c435ae7eab6e3f712f8fd88))
+
 ## [1.4.5](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.4.4...v1.4.5) (2023-07-29)
 
 
