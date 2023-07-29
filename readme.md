@@ -9,11 +9,19 @@
 
 ---
 
-## Feature
+## Features
 
-- Eliminates hierarchies of more than 2 levels when displaying them, restoring the original structure upon hovering or clicking for editing.
+### Eliminates hierarchies
 
-![image](https://github.com/YU000jp/logseq-plugin-short-namespaces/assets/111847207/f2a7aae1-fc7f-4857-9f7a-af1cdd0b2191)
+- When displaying links, eliminates hierarchies. And restoring the original structure upon hovering or clicking for editing.
+
+  ![image](https://github.com/YU000jp/logseq-plugin-short-namespaces/assets/111847207/f2a7aae1-fc7f-4857-9f7a-af1cdd0b2191)
+
+### Link icon
+
+- Displays the corresponding icon on links to pages with the 'icon' property set (if it is hierarchy link, which are limited to the first level).
+
+###
 
 ---
 
