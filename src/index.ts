@@ -115,45 +115,47 @@ const abbreviated = (text: Array<string>, dot: string): string =>
     text.map((part, index, arr) => {
         //数字は除外(日付)
         //partに「Fri, 2023」のように曜日と年がある場合は除外
-        if (logseq.settings!.iconMode === "icon only" && index === 0) {
-            return "";
+        if (/^\d+$/.test(part)
+            || /, \d+$/.test(part)) {
+            return part;
         } else
-            if (/^\d+$/.test(part)
-                || /, \d+$/.test(part)
-                || index === arr.length - 1
-                || (
-                    logseq.settings!.eliminatesLevels === "2 levels"
-                    && index === arr.length - 2
-                )
-                || (
-                    logseq.settings!.eliminatesLevels === "3 levels"
-                    && (
-                        index === arr.length - 2
-                        || index === arr.length - 3
+            if (logseq.settings!.iconMode === "icon only" && index === 0) {
+                return "";
+            } else
+                if (index === arr.length - 1
+                    || (
+                        logseq.settings!.eliminatesLevels === "2 levels"
+                        && index === arr.length - 2
                     )
-                )
-            ) {
-                return part;
-            } else {
-                switch (logseq.settings!.firstLetter) {
-                    case "The first letter":
-                        if (part.length <= 1) return part;//1文字の場合はdotをつけない
-                        return part.charAt(0) + dot;
-                    case "Abbreviate(..)":
-                        return "..";
-                    case "The first 2 letters":
-                        if (part.length <= 2) return part;//2文字未満の場合はdotをつけない
-                        return part.substring(0, 2) + dot;
-                    case "The first 3 letters":
-                        if (part.length <= 3) return part;
-                        return part.substring(0, 3) + dot;
-                    case "The first 4 letters":
-                        if (part.length <= 4) return part;
-                        return part.substring(0, 4) + dot;
-                    default:
-                        return part;
+                    || (
+                        logseq.settings!.eliminatesLevels === "3 levels"
+                        && (
+                            index === arr.length - 2
+                            || index === arr.length - 3
+                        )
+                    )
+                ) {
+                    return part;
+                } else {
+                    switch (logseq.settings!.firstLetter) {
+                        case "The first letter":
+                            if (part.length <= 1) return part;//1文字の場合はdotをつけない
+                            return part.charAt(0) + dot;
+                        case "Abbreviate(..)":
+                            return "..";
+                        case "The first 2 letters":
+                            if (part.length <= 2) return part;//2文字未満の場合はdotをつけない
+                            return part.substring(0, 2) + dot;
+                        case "The first 3 letters":
+                            if (part.length <= 3) return part;
+                            return part.substring(0, 3) + dot;
+                        case "The first 4 letters":
+                            if (part.length <= 4) return part;
+                            return part.substring(0, 4) + dot;
+                        default:
+                            return part;
+                    }
                 }
-            }
     }).join('/');
 
 //元に戻す
