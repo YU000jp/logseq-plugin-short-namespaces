@@ -1,3 +1,11 @@
+## [1.4.4](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.4.3...v1.4.4) (2023-07-29)
+
+
+### Bug Fixes
+
+* **bug:** `Enable display icon only for the first parent page` default ([8d53ca0](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/8d53ca096eb05e371ebeb98b43a5cfc8b975e9cf))
+* **bug:** remove icon only mode ([34ca181](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/34ca18166167419d7adceb5da36f56a78e608c7d))
+
 ## [1.4.3](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.4.2...v1.4.3) (2023-07-29)
 
 
