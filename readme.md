@@ -17,7 +17,7 @@
 
   ![image](https://github.com/YU000jp/logseq-plugin-short-namespaces/assets/111847207/f2a7aae1-fc7f-4857-9f7a-af1cdd0b2191)
 
-### Link icon
+### Link icon [#15](https://github.com/YU000jp/logseq-plugin-short-namespaces/issues/15) [#18](https://github.com/YU000jp/logseq-plugin-short-namespaces/issues/18) 🆕
 
 - Displays the corresponding icon on links to pages with the 'icon' property set (if it is hierarchy link, which are limited to the first level).
 
