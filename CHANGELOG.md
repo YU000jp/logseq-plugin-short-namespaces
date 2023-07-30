@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.5.0...v1.5.1) (2023-07-30)
+
+
+### Bug Fixes
+
+* **bug:** refactor query all ([f57ba0d](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/f57ba0dce073cdddd71b245c9c1ed40315c1765f))
+
 # [1.5.0](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.4.5...v1.5.0) (2023-07-29)
 
 
