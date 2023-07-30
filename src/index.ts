@@ -5,6 +5,8 @@ import { LSPluginBaseInfo, PageEntity, SettingSchemaDesc } from '@logseq/libs/di
 let restore: Boolean = false;
 
 
+
+
 /* main */
 const main = () => {
     // (async () => {
@@ -19,15 +21,18 @@ const main = () => {
 
 
     logseq.App.onRouteChanged(async () => {
-        setTimeout(() => titleQuerySelector(), 200);
+
     });
 
 
     logseq.App.onSidebarVisibleChanged(async ({ visible }) => {
-        if (visible === true) setTimeout(() => titleQuerySelector(), 300);
+        if (visible === true) {
+            observer.disconnect();
+            observerMainRight();
+        }
     });
 
-    setTimeout(() => observerMainRight(), 10);
+    setTimeout(() => observerMainRight(), 500);
 
 
     logseq.onSettingsChanged((newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
@@ -42,49 +47,75 @@ const main = () => {
 };/* end_main */
 
 
-const observer = new MutationObserver(async () => {
+
+const callback = () => {
+    //callback関数
     observer.disconnect();
-    await titleQuerySelector();
-    setTimeout(() => observerMainRight(), 500);
+    pageRefQuerySelectorAll();
+    setTimeout(() => observerMainRight(), 1000);
 }
-);
-const queryAll = 'div:is(#main-content-container,#right-sidebar) a[data-ref*="/"],div#left-sidebar li[data-ref*="/"] span.page-title';
+
+// コールバック関数に結びつけられたオブザーバーのインスタンスを生成
+const observer = new MutationObserver(callback);
+
+
+
+//セレクターに一致するエレメントに処理をおこなう
 
 //.recent-item[data-ref*="/"],
 //div.kef-ae-fav-item-name[title*="/"],
-let processingTitleQuery: boolean = false;
-const titleQuerySelector = async (): Promise<void> => {
-    if (processingTitleQuery === true) return;
-    processingTitleQuery = true;
-    parent.document.querySelectorAll(queryAll).forEach((element) => abbreviateNamespace(element as HTMLElement))
-    parent.document.querySelectorAll('div:is(#main-content-container,#right-sidebar) a.page-ref:not([data-ref*="/"])').forEach((element) => SetLinksIconWithoutHierarchy(element as HTMLElement))
-    processingTitleQuery = false;
+let processingPageRefQuery: boolean = false;
+const pageRefQuerySelectorAll = async (): Promise<void> => {
+    if (processingPageRefQuery === true) return;
+    processingPageRefQuery = true;
+    parent.document.querySelectorAll(
+        'div:is(#main-content-container,#right-sidebar) a[data-ref*="/"]:not([data-orig-text]), div#left-sidebar li[data-ref*="/"] span.page-title:not([data-orig-text])'
+    ).forEach(
+        (element) => abbreviateNamespace(element as HTMLElement)
+    );
+    parent.document.querySelectorAll(
+        'div:is(#main-content-container,#right-sidebar) a.page-ref:not([data-ref*="/"]):not([data-icon])'
+    ).forEach((element) =>
+        SetLinksIconWithoutHierarchy(element as HTMLElement)
+    );
+    processingPageRefQuery = false;
 };
 
 
+
 function observerMainRight() {
-    observer.observe(parent.document.getElementById("main-content-container") as HTMLDivElement, {
-        attributes: true,
+    //対象ノードの監視スタート
+    observer.observe(
+        parent.document.getElementById("main-content-container") as HTMLDivElement, {
         subtree: true,
-        attributeFilter: ["class"],
+        attributes: true,
+        attributeFilter: ['class']
     });
-    observer.observe(parent.document.getElementById("right-sidebar") as HTMLDivElement, {
-        attributes: true,
+    observer.observe(
+        parent.document.getElementById("right-sidebar") as HTMLDivElement, {
         subtree: true,
-        attributeFilter: ["class"],
+        attributes: true,
+        attributeFilter: ['class']
     });
 }
 
+
+
 function abbreviateNamespace(namespaceRef: HTMLElement) {
+
     if (!namespaceRef || (namespaceRef.dataset!.origText)) return;
     const text = namespaceRef.textContent;
     if (!text || !text.includes("/")) return;//textに「/」が含まれているかどうか
+
     // Perform collapsing.
     const splitText = text.split('/') as Array<string>;
     if (logseq.settings!.iconMode !== "false"
         && !namespaceRef.dataset.icon) getIcon(namespaceRef, splitText[0] as string);
     const abbreviatedText = abbreviated(splitText, logseq.settings!.booleanUseDot === true ? ".." : "") as string;
-    if (abbreviatedText === text) return;
+    if (abbreviatedText === text) {
+        namespaceRef.dataset.origText = namespaceRef.textContent || "";
+        return;
+    }
 
     namespaceRef.dataset.origText = text || "";
     namespaceRef.textContent = abbreviatedText;
@@ -110,16 +141,6 @@ function abbreviateNamespace(namespaceRef: HTMLElement) {
 }
 
 
-const getIcon = async (namespaceRef, parent: string): Promise<void> => {
-    //parentの先頭に#ある場合は削除
-    if (parent.startsWith("#")) parent = parent.slice(1);
-    const page = await logseq.Editor.getPage(parent) as PageEntity;
-    if (page && page.properties?.icon) {
-        if (namespaceRef.dataset.icon) return;//非同期処理のため必要。既にアイコンがある場合は処理しない
-        namespaceRef.insertAdjacentHTML("beforebegin", page.properties.icon as string);
-        namespaceRef.dataset.icon = page.properties.icon as string;
-    }
-};
 
 const abbreviated = (text: Array<string>, dot: string): string =>
     text.map((part, index, arr) => {
@@ -160,10 +181,18 @@ const abbreviated = (text: Array<string>, dot: string): string =>
             }
     }).join('/');
 
-//元に戻す
-function restoreAllNamespaces() {
-    parent.document.querySelectorAll(queryAll).forEach((element) => restoreNamespace(element as HTMLElement));
-}
+
+const getIcon = async (namespaceRef, parent: string): Promise<void> => {
+    //parentの先頭に#ある場合は削除
+    if (parent.startsWith("#")) parent = parent.slice(1);
+    const page = await logseq.Editor.getPage(parent) as PageEntity;
+    if (page && page.properties?.icon) {
+        if (namespaceRef.dataset.icon) return;//非同期処理のため必要。既にアイコンがある場合は処理しない
+        namespaceRef.insertAdjacentHTML("beforebegin", page.properties.icon as string);
+        namespaceRef.dataset.icon = page.properties.icon as string;
+    }
+};
+
 
 async function SetLinksIconWithoutHierarchy(elementRef: HTMLElement): Promise<void> {
     //「/」をもたないリンクにアイコンをつける
@@ -172,18 +201,29 @@ async function SetLinksIconWithoutHierarchy(elementRef: HTMLElement): Promise<vo
     if (!text || text.includes("/")) return;
     if (text.startsWith("#")) text = text.slice(1);
     const page = await logseq.Editor.getPage(text) as PageEntity;
-    if (!page || !page.properties?.icon) return;
+    if (!page || !page.properties?.icon) {
+        elementRef.dataset.icon = "none";
+        return;
+    }
     if (elementRef.dataset.icon) return;//非同期処理のため必要。既にアイコンがある場合は処理しない
     elementRef.insertAdjacentHTML("beforebegin", page.properties.icon as string);
     elementRef.dataset.icon = page.properties.icon as string;
 }
 
-function restoreNamespace(namespaceRef: HTMLElement) {
+
+//元に戻す
+const restoreAllNamespaces = () =>
+    parent.document.querySelectorAll(
+        'div:is(#main-content-container,#right-sidebar) a[data-ref*="/"][data-orig-text], div#left-sidebar li[data-ref*="/"] span.page-title[data-orig-text]'
+    ).forEach((element) =>
+        restoreNamespace(element as HTMLElement)
+    );
+const restoreNamespace = (namespaceRef: HTMLElement) => {
     if (namespaceRef && namespaceRef.dataset!.origText) {
         namespaceRef.textContent = namespaceRef.dataset.origText;
         delete namespaceRef.dataset.origText;
     }
-}
+};
 
 
 /* user setting */
