@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.5.1...v1.5.2) (2023-08-03)
+
+
+### Bug Fixes
+
+* **bug:** due to event listeners tendency to disrupt layouts ([a7c873a](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/a7c873a61644eccec7d3300cd4ac6f1428896256))
+
 ## [1.5.1](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.5.0...v1.5.1) (2023-07-30)
 
 
