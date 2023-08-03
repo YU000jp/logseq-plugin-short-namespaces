@@ -2,6 +2,7 @@ import '@logseq/libs'; //https://plugins-doc.logseq.com/
 import { LSPluginBaseInfo, PageEntity, SettingSchemaDesc } from '@logseq/libs/dist/LSPlugin.user';
 //import { setup as l10nSetup, t } from "logseq-l10n"; //https://github.com/sethyuan/logseq-l10n
 //import ja from "./translations/ja.json";
+import fileTooltipCSS from "./tooltip.css?inline";
 let restore: Boolean = false;
 
 
@@ -19,11 +20,7 @@ const main = () => {
     //     }
     // })();
 
-
-    logseq.App.onRouteChanged(async () => {
-
-    });
-
+    logseq.provideStyle(fileTooltipCSS);
 
     logseq.App.onSidebarVisibleChanged(async ({ visible }) => {
         if (visible === true) {
@@ -33,7 +30,6 @@ const main = () => {
     });
 
     setTimeout(() => observerMainRight(), 500);
-
 
     logseq.onSettingsChanged((newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
         //更新されたら
@@ -45,6 +41,7 @@ const main = () => {
     });
 
 };/* end_main */
+
 
 
 
@@ -119,25 +116,7 @@ function abbreviateNamespace(namespaceRef: HTMLElement) {
 
     namespaceRef.dataset.origText = text || "";
     namespaceRef.textContent = abbreviatedText;
-    const enterHandler = () => {
-        if (restore === false) {
-            namespaceRef.textContent = namespaceRef.dataset.origText || "";
-        } else if (restore === true) {
-            //イベントリスナーを削除
-            namespaceRef.removeEventListener('mouseenter', enterHandler);
-        }
-    };
-    const leaveHandler = () => {
-        if (restore === false) {
-            namespaceRef.textContent = abbreviatedText;
-        } else if (restore === true) {
-            //イベントリスナーを削除
-            namespaceRef.removeEventListener('mouseleave', leaveHandler);
-        }
-    };
-    // Show entire string on hover
-    namespaceRef.addEventListener('mouseenter', enterHandler);
-    namespaceRef.addEventListener('mouseleave', leaveHandler);
+    namespaceRef.classList.add("shortNamespaceTooltip");//CSSでtooltipを表示する
 }
 
 
