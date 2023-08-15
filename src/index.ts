@@ -241,7 +241,7 @@ const settingsTemplate = (): SettingSchemaDesc[] => [
         title: "Enable display icon only for the first parent page",
         default: false,
         enumChoices: ["false", "icon and text"],//icon only
-        description: "default: false (⚠️need to turn off this plugin or restart Logseq to take effect)",
+        description: "default: false (⚠️need to restart Logseq to take effect)",
     },
 ];
 
