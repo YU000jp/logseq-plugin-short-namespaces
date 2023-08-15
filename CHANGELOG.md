@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.5.2...v1.5.3) (2023-08-15)
+
+
+### Bug Fixes
+
+* **doc:** plugin settings ([cf8b4af](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/cf8b4afba0e2cacebd1a8ed9fc39f4ab115f595c))
+
 ## [1.5.2](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.5.1...v1.5.2) (2023-08-03)
 
 
