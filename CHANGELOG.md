@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.5.3...v1.6.0) (2023-08-18)
+
+
+### Features
+
+* **left sidebar:** Support `Another embed` plugin tree items ([c623d43](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/c623d43b2f88a594ef1f916e89c202d0d7c9d5d7))
+
 ## [1.5.3](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.5.2...v1.5.3) (2023-08-15)
 
 
