@@ -29,9 +29,7 @@
 
 ### Install from Logseq Marketplace
 
-- Press [`---`] on the top right toolbar to open [`Plugins`]
-- Select `Marketplace`
-- Type `Short` in the search field, select it from the search results and install
+- Press [`---`] on the top right toolbar to open [`Plugins`]. Select `Marketplace`. Type `Short` in the search field, select it from the search results and install.
 
    ![image](https://github.com/YU000jp/logseq-plugin-short-namespaces/assets/111847207/c2782452-9254-4cda-9604-5283de136da2)
 
