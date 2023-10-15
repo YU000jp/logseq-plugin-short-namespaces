@@ -1,29 +1,31 @@
-div#root .shortNamespaceTooltip {
-  position: relative;
-  cursor: pointer
-}
-div#root div#main-content-container .shortNamespaceTooltip::before {
-  white-space: nowrap
-}
-div#root .shortNamespaceTooltip::before {
-  content: attr(data-orig-text);
-  display: block;
-  padding: 3px 13px;
-  background: var(--ls-secondary-background-color);
-  border-radius: 4px;
-  font-size: .94em;
-  top: 0;
-  left: 0;
-  z-index: var(--ls-z-index-level-3);
-  overflow: auto;
-  margin: -.4em auto
-}
-div#root .shortNamespaceTooltip:hover::before {
-  top: 0;
-  opacity: 1;
-  display: block;
-}
-div#root .shortNamespaceTooltip::before {
-  position: absolute;
-  display: none
+body>div#root>div>main>div#app-container>div {
+  & .shortNamespaceTooltip {
+    position: relative;
+    cursor: pointer;
+
+    &::before {
+      content: attr(data-orig-text);
+      padding: 3px 13px;
+      background: var(--ls-secondary-background-color);
+      border-radius: 4px;
+      font-size: .94em;
+      top: 0;
+      left: 0;
+      z-index: var(--ls-z-index-level-3);
+      overflow: auto;
+      margin: -.4em auto;
+      position: absolute;
+      display: none
+    }
+
+    &:hover::before {
+      top: 0;
+      opacity: 1;
+      display: block;
+    }
+  }
+
+  & div#main-content-container .shortNamespaceTooltip::before {
+    white-space: nowrap
+  }
 }
