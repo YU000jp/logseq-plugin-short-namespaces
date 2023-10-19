@@ -11,7 +11,7 @@
 
 ## Features
 
-### Shorten the hierarchy
+### Shorten hierarchies
 
 - If there are hierarchical links, shorten them, and restore the original structure upon hovering or clicking for editing.
 
