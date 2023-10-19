@@ -66,12 +66,12 @@ const pageRefQuerySelectorAll = async (): Promise<void> => {
     if (processingPageRefQuery === true) return;
     processingPageRefQuery = true;
     parent.document.querySelectorAll(
-        'div:is(#main-content-container,#right-sidebar) a[data-ref*="/"]:not([data-orig-text]), div#left-sidebar li[data-ref*="/"] span.page-title:not([data-orig-text])'
+        'body>div#root>div>main div:is(#main-content-container,#right-sidebar) a[data-ref*="/"]:not([data-orig-text]),body>div#root>div>main div#left-sidebar li[data-ref*="/"] span.page-title:not([data-orig-text])'
     ).forEach(
         (element) => abbreviateNamespace(element as HTMLElement)
     );
     parent.document.querySelectorAll(
-        'div:is(#main-content-container,#right-sidebar) a.page-ref:not([data-ref*="/"]):not([data-icon])'
+        'body>div#root>div>main div:is(#main-content-container,#right-sidebar) a.page-ref:not([data-ref*="/"]):not([data-icon])'
     ).forEach((element) =>
         SetLinksIconWithoutHierarchy(element as HTMLElement)
     );
@@ -193,7 +193,7 @@ async function SetLinksIconWithoutHierarchy(elementRef: HTMLElement): Promise<vo
 //元に戻す
 const restoreAllNamespaces = () =>
     parent.document.querySelectorAll(
-        'div:is(#main-content-container,#right-sidebar) a[data-ref*="/"][data-orig-text], div#left-sidebar li[data-ref*="/"] span.page-title[data-orig-text]'
+        'body>div#root>div>main div:is(#main-content-container,#right-sidebar) a[data-ref*="/"][data-orig-text],body>div#root>div>main div#left-sidebar li[data-ref*="/"] span.page-title[data-orig-text]'
     ).forEach((element) =>
         restoreNamespace(element as HTMLElement)
     );
