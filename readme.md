@@ -1,3 +1,5 @@
+[日本語](https://github.com/YU000jp/logseq-plugin-short-namespaces/blob/main/readme.ja.md)
+
 # Logseq Plugin: *Short Namespaces* 🍰
 
 - Provides abbreviated representation for namespaces (hierarchy).
