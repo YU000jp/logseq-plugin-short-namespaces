@@ -2,7 +2,7 @@
 
 # Logseq Plugin: *Short Namespaces* 🍰
 
-- 名前空間（階層）の略語表現を提供します。
+- 長くなりがちな、階層をもつリンクを省略して表示します。
 
 [![最新リリースバージョン](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-short-namespaces)](https://github.com/YU000jp/logseq-plugin-short-namespaces/releases)
 [![ライセンス](https://img.shields.io/github/license/YU000jp/logseq-plugin-short-namespaces?color=blue)](https://github.com/YU000jp/logseq-plugin-short-namespaces/LICENSE)
