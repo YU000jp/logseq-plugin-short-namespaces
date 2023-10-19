@@ -1,3 +1,15 @@
+## [1.6.1](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.6.0...v1.6.1) (2023-10-19)
+
+
+### Bug Fixes
+
+* logseq-l10n / plugin settings ([1c473fa](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/1c473faf35e8f26228baf7ab9ef2b2c6d6342ef0))
+
+
+### Reverts
+
+* Revert "feat(left sidebar): Support `Another embed` plugin tree items" ([4191423](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/4191423fd00e148c506c3c35a02dd7a2dba1dc7f))
+
 # [1.6.0](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.5.3...v1.6.0) (2023-08-18)
 
 
