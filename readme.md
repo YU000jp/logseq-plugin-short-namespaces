@@ -2,7 +2,7 @@
 
 # Logseq Plugin: *Short Namespaces* 🍰
 
-- Provides abbreviated representation for namespaces (hierarchy).
+- Displays hierarchical links, which tend to be long, by omitting them.
 
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-short-namespaces)](https://github.com/YU000jp/logseq-plugin-short-namespaces/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-short-namespaces?color=blue)](https://github.com/YU000jp/logseq-plugin-short-namespaces/LICENSE)
