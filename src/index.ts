@@ -1,24 +1,18 @@
 import '@logseq/libs'; //https://plugins-doc.logseq.com/
 import { LSPluginBaseInfo, PageEntity, SettingSchemaDesc } from '@logseq/libs/dist/LSPlugin.user';
-//import { setup as l10nSetup, t } from "logseq-l10n"; //https://github.com/sethyuan/logseq-l10n
-//import ja from "./translations/ja.json";
+import { setup as l10nSetup, t } from "logseq-l10n"; //https://github.com/sethyuan/logseq-l10n
+import ja from "./translations/ja.json";
 import fileTooltipCSS from "./tooltip.css?inline";
 let restore: Boolean = false;
 
 
 
-
 /* main */
-const main = () => {
-    // (async () => {
-    //     try {
-    //         await l10nSetup({ builtinTranslations: { ja } });
-    //     } finally {
+const main = async() => {
+ await l10nSetup({ builtinTranslations: { ja } });
     /* user settings */
     logseq.useSettingsSchema(settingsTemplate());
     if (!logseq.settings) setTimeout(() => logseq.showSettingsUI(), 300);
-    //     }
-    // })();
 
     logseq.provideStyle(fileTooltipCSS);
 
@@ -213,7 +207,7 @@ const settingsTemplate = (): SettingSchemaDesc[] => [
         key: "firstLetter",
         type: "enum",
         enumChoices: ["Abbreviate(..)", "The first letter", "The first 2 letters", "The first 3 letters", "The first 4 letters"],
-        title: "Show First letter of Root page name",
+        title: t("Show First letter of Root page name"),
         default: "The first 2 letters",
         description: "default: The first 2 letters",
     },
@@ -222,7 +216,7 @@ const settingsTemplate = (): SettingSchemaDesc[] => [
         key: "eliminatesLevels",
         type: "enum",
         enumChoices: ["1 level", "2 levels", "3 levels"],
-        title: "Eliminates hierarchies of more than 2 levels",
+        title: t("From what level should omit hierarchy?"),
         default: "2 levels",
         description: "default: 2 levels",
     },
@@ -230,18 +224,18 @@ const settingsTemplate = (): SettingSchemaDesc[] => [
         //Use dot instead of slash
         key: "booleanUseDot",
         type: "boolean",
-        title: "Use dot instead",
+        title: t("Show abbreviations with dots (..) or nothing"),
         default: true,
         description: "default: true",
     },
     {//Enable Icon mode
         key: "iconMode",
         type: "enum",
-        //先頭の親ページのみアイコンを表示す親
-        title: "Enable display icon only for the first parent page",
+        //先頭の親ページのみアイコンを表示
+        title: t("Enable display the specified icon on the first parent page"),
         default: false,
         enumChoices: ["false", "icon and text"],//icon only
-        description: "default: false (⚠️need to restart Logseq to take effect)",
+        description: t("⚠️need to restart Logseq to take effect"),
     },
 ];
 
