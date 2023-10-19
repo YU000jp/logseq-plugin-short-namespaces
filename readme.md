@@ -11,13 +11,13 @@
 
 ## Features
 
-### Shorten the hierarchy
+### Shorten hierarchies
 
 - If there are hierarchical links, shorten them, and restore the original structure upon hovering or clicking for editing.
 
   ![image](https://github.com/YU000jp/logseq-plugin-short-namespaces/assets/111847207/f2a7aae1-fc7f-4857-9f7a-af1cdd0b2191)
 
-### Link icon [#15](https://github.com/YU000jp/logseq-plugin-short-namespaces/issues/15) [#18](https://github.com/YU000jp/logseq-plugin-short-namespaces/issues/18) 🆕
+### Link icon
 
 - Displays the corresponding icon on links to pages with the 'icon' property set (if it is hierarchy link, which are limited to the first level).
 
@@ -52,7 +52,7 @@
 - Use dot instead: boolean
   - `true` default
   - `false`
-- Enable display icon only for the first parent page [#15](https://github.com/YU000jp/logseq-plugin-short-namespaces/issues/15) [#18](https://github.com/YU000jp/logseq-plugin-short-namespaces/issues/18) 🆕
+- Enable display icon only for the first parent page
   - `true`
   - `false` default 
 
