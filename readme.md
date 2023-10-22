@@ -1,6 +1,6 @@
-[日本語](https://github.com/YU000jp/logseq-plugin-short-namespaces/blob/main/readme.ja.md)
-
 # Logseq Plugin: *Short Namespaces* 🍰
+
+[English](https://github.com/YU000jp/logseq-plugin-short-namespaces) | [日本語](https://github.com/YU000jp/logseq-plugin-short-namespaces/blob/main/readme.ja.md)
 
 - Displays hierarchical links, which tend to be long, by omitting them.
 
@@ -9,31 +9,24 @@
 [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-short-namespaces/total.svg)](https://github.com/YU000jp/logseq-plugin-short-namespaces/releases)
  Published 2023/06/12
 
----
+## Overview
 
-## Features
+Shorten hierarchies
+  - If there are hierarchical links, shorten them, and restore the original structure upon hovering or clicking for editing.
 
-### Shorten hierarchies
+    ![image](https://github.com/YU000jp/logseq-plugin-short-namespaces/assets/111847207/f2a7aae1-fc7f-4857-9f7a-af1cdd0b2191)
 
-- If there are hierarchical links, shorten them, and restore the original structure upon hovering or clicking for editing.
-
-  ![image](https://github.com/YU000jp/logseq-plugin-short-namespaces/assets/111847207/f2a7aae1-fc7f-4857-9f7a-af1cdd0b2191)
-
-### Link icon
-
-- Displays the corresponding icon on links to pages with the 'icon' property set (if it is hierarchy link, which are limited to the first level).
-
-###
+Link icon
+  - Displays the corresponding icon on links to pages with the 'icon' property set (if it is hierarchy link, which are limited to the first level).
 
 ---
 
 ## Getting Started
 
-### Install from Logseq Marketplace
+Install from Logseq Marketplace
+  - Press [`---`] on the top right toolbar to open [`Plugins`]. Select `Marketplace`. Type `Short` in the search field, select it from the search results and install.
 
-- Press [`---`] on the top right toolbar to open [`Plugins`]. Select `Marketplace`. Type `Short` in the search field, select it from the search results and install.
-
-   ![image](https://github.com/YU000jp/logseq-plugin-short-namespaces/assets/111847207/c2782452-9254-4cda-9604-5283de136da2)
+     ![image](https://github.com/YU000jp/logseq-plugin-short-namespaces/assets/111847207/c2782452-9254-4cda-9604-5283de136da2)
 
 ### Usage
 
@@ -60,25 +53,18 @@
 
 ---
 
-## Contribution
+## Recommend
 
-- [Zyrohex](https://gist.github.com/Zyrohex/9782b737f8f7f7bca7b6cc7e7868d793)
-- [Bader](https://discord.com/channels/725182569297215569/896368413243494430/1116515366508711996)
+- [Page-tags and Hierarchy plugin](https://github.com/YU000jp/logseq-page-tags-and-hierarchy)
 
 ## Showcase / Questions / Ideas / Help
 
 > Go to the [discussion](https://github.com/YU000jp/logseq-plugin-short-namespaces/discussions) tab to ask and find this kind of things.
 
-## Author
-
-- GitHub: [YU000jp](https://github.com/YU000jp)
-
-## Credit
-
-### Icon
-
-- [icooon-mono.com](https://icooon-mono.com/12668-%e3%82%b1%e3%83%bc%e3%82%ad%e3%81%ae%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b33/)
-
----
+## Contribution / Prior art / Credit
+1. Script > [Zyrohex](https://gist.github.com/Zyrohex/9782b737f8f7f7bca7b6cc7e7868d793)
+1. Script > [Bader](https://discord.com/channels/725182569297215569/896368413243494430/1116515366508711996)
+1. Icon > [icooon-mono.com](https://icooon-mono.com/12668-%e3%82%b1%e3%83%bc%e3%82%ad%e3%81%ae%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b33/)
+1. Author > [YU000jp](https://github.com/YU000jp)
 
 <a href="https://www.buymeacoffee.com/yu000japan" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="🍌Buy Me A Coffee" style="height: 42px;width: 152px" ></a>
