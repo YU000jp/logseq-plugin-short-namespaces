@@ -6,7 +6,7 @@ body>div#root>div>main>div#app-container>div {
     &::before {
       content: attr(data-orig-text);
       padding: 3px 13px;
-      background: var(--ls-secondary-background-color);
+      background-color: var(--ls-secondary-background-color);
       border-radius: 4px;
       font-size: .94em;
       top: 0;
