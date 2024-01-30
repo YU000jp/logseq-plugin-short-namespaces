@@ -13,6 +13,7 @@
 
 Shorten hierarchies
   - If there are hierarchical links, shorten them, and restore the original structure upon hovering or clicking for editing.
+    > It is possible to set the hierarchy level in the plugin settings.
 
     ![image](https://github.com/YU000jp/logseq-plugin-short-namespaces/assets/111847207/f2a7aae1-fc7f-4857-9f7a-af1cdd0b2191)
 
@@ -44,7 +45,7 @@ Install from Logseq Marketplace
   - `1 level`
   - `2 levels` default
   - `3 levels`
-  - `All levels`
+  - `All levels` 🆕
 - Use dot instead: boolean
   - `true` default
   - `false`
