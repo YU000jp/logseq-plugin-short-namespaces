@@ -2,6 +2,7 @@ body>div#root>div>main>div#app-container>div {
   & .shortNamespaceTooltip {
     position: relative;
     cursor: pointer;
+    text-decoration: underline;
 
     &::before {
       content: attr(data-orig-text);
