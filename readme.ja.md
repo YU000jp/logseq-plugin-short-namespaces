@@ -12,7 +12,8 @@
 ## 概要
 
 階層を短縮
-  - 階層的なリンクがある場合、それらを短縮し、編集のためにホバーまたはクリックしたときに元の構造を復元します。
+  - 階層リンクがある場合、それらを短縮し、ホバーまたは編集のためにクリックしたときに元の構造を復元します。
+    > プラグインの設定で階層レベルを設定することが可能です。
 
     ![画像](https://github.com/YU000jp/logseq-plugin-short-namespaces/assets/111847207/f2a7aae1-fc7f-4857-9f7a-af1cdd0b2191)
 
@@ -44,6 +45,7 @@ Logseq マーケットプレイスからインストール
   - `1レベル`
   - `2レベル` デフォルト
   - `3レベル`
+  - `全レベル` 🆕
 - ドットで省略されたのを示すかどうか: ブール
   - `true` デフォルト
   - `false`
@@ -53,19 +55,18 @@ Logseq マーケットプレイスからインストール
 
 ---
 
-## おすすめ
-
-- [ページタグと階層 (ページUI) プラグイン](https://github.com/YU000jp/logseq-plugin-page-tags-and-hierarchy)
-
 ## ショーケース / 質問 / アイデア / ヘルプ
 
 > この種の質問や情報を探すには、[ディスカッション](https://github.com/YU000jp/logseq-plugin-short-namespaces/discussions) タブに移動してください。
 
+- おすすめ
+  1. [ページタグと階層 (ページUI) プラグイン](https://github.com/YU000jp/logseq-plugin-page-tags-and-hierarchy)
+
 ## 貢献 / 先行技術 / クレジット
 
-1. スクリプト > [Zyrohex](https://gist.github.com/Zyrohex/9782b737f8f7f7bca7b6cc7e7868d793)
-1. スクリプト > [Bader](https://discord.com/channels/725182569297215569/896368413243494430/1116515366508711996)
+1. スクリプト > @[Zyrohex](https://gist.github.com/Zyrohex/9782b737f8f7f7bca7b6cc7e7868d793)
+1. スクリプト > @[Bader](https://discord.com/channels/725182569297215569/896368413243494430/1116515366508711996)
 1. アイコン > [icooon-mono.com](https://icooon-mono.com/12668-%e3%82%b1%e3%83%bc%e3%82%ad%e3%81%ae%e3%82%a2%e3%82%a4%e3%82%b33/)
-1. 製作者 > [YU000jp](https://github.com/YU000jp)
+1. 製作者 > @[YU000jp](https://github.com/YU000jp)
 
 <a href="https://www.buymeacoffee.com/yu000japan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a pizza&emoji=🍕&slug=yu000japan&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" /></a>
