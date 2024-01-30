@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.6.1...v1.7.0) (2024-1-30)
+
+
+### Features
+
+* **Add:** Hide everything except the intended page's name [#24](https://github.com/YU000jp/logseq-plugin-short-namespaces/issues/24) ([a8fa4d7](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/a8fa4d7ccce83ceac9c0352f4cfaab45add38433))
+
 ## [1.6.1](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.6.0...v1.6.1) (2023-10-19)
 
 
