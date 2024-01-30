@@ -115,18 +115,21 @@ const abbreviateNamespace = (namespaceRef: HTMLElement) => {
 
 
 
-const abbreviated = (text: Array<string>, dot: string): string =>
-    text.map((part, index, arr) => {
-        //数字は除外(日付)
-        //partに「Fri, 2023」のように曜日と年がある場合は除外
-        if (/^\d+$/.test(part)
-            || /, \d+$/.test(part)) {
-            return part
-        } else
-            // 階層はすべて消す場合
-            if (logseq.settings!.eliminatesLevels === "All levels") {
-                if (index === arr.length - 1) return part
-                return ""
+const abbreviated = (text: Array<string>, dot: string): string => {
+    const intendedText = text[text.length - 1]
+    if (logseq.settings!.eliminatesLevels === "All levels"
+        && !(/^\d+$/.test(intendedText)
+        || /, \d+$/.test(intendedText)))
+        // 階層はすべて消す場合
+        return intendedText
+    else {
+        // 階層を残す場合
+        return text.map((part, index, arr) => {
+            //数字は除外(日付)
+            //partに「Fri, 2023」のように曜日と年がある場合は除外
+            if (/^\d+$/.test(part)
+                || /, \d+$/.test(part)) {
+                return part
             } else
                 if ((index === arr.length - 1
                     || (logseq.settings!.eliminatesLevels === "2 levels"
@@ -157,8 +160,9 @@ const abbreviated = (text: Array<string>, dot: string): string =>
                             return part
                     }
                 }
-    }).join(logseq.settings!.eliminatesLevels !== "All levels" ? '/' : "")
-
+        }).join('/')
+    }
+}
 
 const getIcon = async (namespaceRef, parent: string): Promise<void> => {
     //parentの先頭に#ある場合は削除
