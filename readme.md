@@ -44,6 +44,7 @@ Install from Logseq Marketplace
   - `1 level`
   - `2 levels` default
   - `3 levels`
+  - `All levels`
 - Use dot instead: boolean
   - `true` default
   - `false`
@@ -53,13 +54,12 @@ Install from Logseq Marketplace
 
 ---
 
-## Recommend
-
-- [Page-tags and Hierarchy plugin](https://github.com/YU000jp/logseq-page-tags-and-hierarchy)
-
 ## Showcase / Questions / Ideas / Help
 
 > Go to the [discussion](https://github.com/YU000jp/logseq-plugin-short-namespaces/discussions) tab to ask and find this kind of things.
+
+- Recommend
+  1. [Page-tags and Hierarchy plugin](https://github.com/YU000jp/logseq-page-tags-and-hierarchy)
 
 ## Contribution / Prior art / Credit
 1. Script > [Zyrohex](https://gist.github.com/Zyrohex/9782b737f8f7f7bca7b6cc7e7868d793)
