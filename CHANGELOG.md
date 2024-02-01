@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.7.1...v1.7.2) (2024-2-1)
+
+
+### Bug Fixes
+
+* **bug:** Bug that converts to "undefined" -2 [#27](https://github.com/YU000jp/logseq-plugin-short-namespaces/issues/27) ([95eedf5](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/95eedf5fe9ba00a9b2e04bbf68a981e47f018844))
+
 ## [1.7.1](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.7.0...v1.7.1) (2024-2-1)
 
 
