@@ -4,7 +4,6 @@ import { setup as l10nSetup } from "logseq-l10n" //https://github.com/sethyuan/l
 import ja from "./translations/ja.json"
 import fileTooltipCSS from "./tooltip.css?inline"
 import { settingsTemplate } from './settings'
-import { text } from 'stream/consumers'
 
 
 /* main */
