@@ -4,6 +4,7 @@ import { setup as l10nSetup } from "logseq-l10n" //https://github.com/sethyuan/l
 import ja from "./translations/ja.json"
 import fileTooltipCSS from "./tooltip.css?inline"
 import { settingsTemplate } from './settings'
+import { text } from 'stream/consumers'
 
 
 /* main */
@@ -94,43 +95,48 @@ const observerMainRight = () => {
 
 const abbreviateNamespace = (namespaceRef: HTMLElement) => {
 
-    if (!namespaceRef || (namespaceRef.dataset!.origText)) return
-    const text = namespaceRef.textContent
-    if (!text || !text.includes("/")) return//textに「/」が含まれているかどうか
+    if (!namespaceRef
+        || namespaceRef.dataset!.origText
+        || !namespaceRef.textContent) return
+
+    const textString: string = namespaceRef.textContent
+    if (!textString.includes("/")) return//textに「/」が含まれているかどうか
 
     // Perform collapsing.
-    const splitText = text.split('/') as Array<string>
+    const splitString: Array<string> = textString.split('/')
+
     if (logseq.settings!.iconMode !== "false"
-        && !namespaceRef.dataset.icon) getIcon(namespaceRef, splitText[0] as string)
-    const abbreviatedText = abbreviated(splitText, logseq.settings!.booleanUseDot === true ? ".." : "") as string
-    if (abbreviatedText === text) {
+        && !namespaceRef.dataset.icon) getIcon(namespaceRef, splitString[0] as string)
+
+    const abbreviatedText = abbreviated(splitString, logseq.settings!.booleanUseDot === true ? ".." : "") as string
+
+    if (abbreviatedText === textString) {
         namespaceRef.dataset.origText = namespaceRef.textContent || ""
         return
     }
-
-    namespaceRef.dataset.origText = text || ""
+    namespaceRef.dataset.origText = textString || ""
     namespaceRef.textContent = abbreviatedText
     namespaceRef.classList.add("shortNamespaceTooltip")//CSSでtooltipを表示する
 }
 
 
 
-const abbreviated = (text: Array<string>, dot: string): string => {
-    const intendedText = text[text.length - 1] || text[0]
+const abbreviated = (stringArray: Array<string>, dot: string): string => {
+    const intendedText: string = stringArray[stringArray.length - 1] || ""
     if (logseq.settings!.eliminatesLevels === "All levels"
         && !(/^\d+$/.test(intendedText)
-        || /, \d+$/.test(intendedText)))
+            || /, \d+$/.test(intendedText)))
         // 階層はすべて消す場合
-        return intendedText
+        return intendedText || ""
     else {
         // 階層を残す場合
-        return text.map((part, index, arr) => {
+        return stringArray.map((part, index, arr) => {
             //数字は除外(日付)
             //partに「Fri, 2023」のように曜日と年がある場合は除外
             if (/^\d+$/.test(part)
-                || /, \d+$/.test(part)) {
+                || /, \d+$/.test(part))
                 return part
-            } else
+            else
                 if ((index === arr.length - 1
                     || (logseq.settings!.eliminatesLevels === "2 levels"
                         && index === arr.length - 2)
@@ -138,9 +144,9 @@ const abbreviated = (text: Array<string>, dot: string): string => {
                         logseq.settings!.eliminatesLevels === "3 levels"
                         && (index === arr.length - 2
                             || index === arr.length - 3))
-                )) {
+                ))
                     return part
-                } else {
+                else
                     switch (logseq.settings!.firstLetter) {
                         case "The first letter":
                             if (part.length <= 1) return part//1文字の場合はdotをつけない
@@ -159,7 +165,6 @@ const abbreviated = (text: Array<string>, dot: string): string => {
                         default:
                             return part
                     }
-                }
         }).join('/')
     }
 }
@@ -178,19 +183,25 @@ const getIcon = async (namespaceRef, parent: string): Promise<void> => {
 
 const SetLinksIconWithoutHierarchy = async (elementRef: HTMLElement): Promise<void> => {
     //「/」をもたないリンクにアイコンをつける
-    if (!elementRef || elementRef.dataset!.icon !== undefined) return
-    let text = elementRef.textContent
-    if (!text || text.includes("/")) return
+    if (!elementRef
+        || elementRef.dataset!.icon) return
+
+    let text = elementRef.textContent as string | null
+    if (!text
+        || text.includes("/")) return
+
     if (text.startsWith("#")) text = text.slice(1)
 
     const { properties } = await logseq.Editor.getPage(text) as {
         properties: PageEntity["properties"]
     } || null
-    if (!properties || properties!.icon) {
+    if (!properties
+        || properties!.icon === undefined) {
         elementRef.dataset.icon = "none"
         return
     }
     if (elementRef.dataset.icon) return//非同期処理のため必要。既にアイコンがある場合は処理しない
+
     elementRef.insertAdjacentHTML("beforebegin", properties.icon as string)
     elementRef.dataset.icon = properties.icon as string
 }
