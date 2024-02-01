@@ -116,7 +116,7 @@ const abbreviateNamespace = (namespaceRef: HTMLElement) => {
 
 
 const abbreviated = (text: Array<string>, dot: string): string => {
-    const intendedText = text[text.length - 1]
+    const intendedText = text[text.length - 1] || text[0]
     if (logseq.settings!.eliminatesLevels === "All levels"
         && !(/^\d+$/.test(intendedText)
         || /, \d+$/.test(intendedText)))
