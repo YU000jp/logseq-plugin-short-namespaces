@@ -1,3 +1,10 @@
+## [1.7.3](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.7.2...v1.7.3) (2024-2-3)
+
+
+### Bug Fixes
+
+* **bug:** console error ([642d57b](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/642d57b3f049a97fb80abfdf525b5591c513a03a))
+
 ## [1.7.2](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.7.1...v1.7.2) (2024-2-1)
 
 
