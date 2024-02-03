@@ -171,11 +171,14 @@ const abbreviated = (stringArray: Array<string>, dot: string): string => {
 const getIcon = async (namespaceRef, parent: string): Promise<void> => {
     //parentの先頭に#ある場合は削除
     if (parent.startsWith("#")) parent = parent.slice(1)
-    const { properties } = await logseq.Editor.getPage(parent) as { properties: PageEntity["properties"] } || null
-    if (properties && properties!.icon) {
-        if (namespaceRef.dataset.icon) return//非同期処理のため必要。既にアイコンがある場合は処理しない
-        namespaceRef.insertAdjacentHTML("beforebegin", properties.icon as string)
-        namespaceRef.dataset.icon = properties.icon as string
+    const page = await logseq.Editor.getPage(parent) as { properties: PageEntity["properties"] } || null
+    if (!namespaceRef.dataset.icon
+        && page
+        && page.properties
+        && page.properties!.icon) {
+        //非同期処理のため必要。既にアイコンがある場合は処理しない
+        namespaceRef.insertAdjacentHTML("beforebegin", page.properties!.icon as string)
+        namespaceRef.dataset.icon = page.properties!.icon as string
     }
 }
 
@@ -191,18 +194,19 @@ const SetLinksIconWithoutHierarchy = async (elementRef: HTMLElement): Promise<vo
 
     if (text.startsWith("#")) text = text.slice(1)
 
-    const { properties } = await logseq.Editor.getPage(text) as {
+    const page = await logseq.Editor.getPage(text) as {
         properties: PageEntity["properties"]
     } || null
-    if (!properties
-        || properties!.icon === undefined) {
+    if (!page
+        || !page.properties
+        || page.properties!.icon === undefined) {
         elementRef.dataset.icon = "none"
         return
     }
     if (elementRef.dataset.icon) return//非同期処理のため必要。既にアイコンがある場合は処理しない
 
-    elementRef.insertAdjacentHTML("beforebegin", properties.icon as string)
-    elementRef.dataset.icon = properties.icon as string
+    elementRef.insertAdjacentHTML("beforebegin", page.properties.icon as string)
+    elementRef.dataset.icon = page.properties.icon as string
 }
 
 
@@ -214,7 +218,8 @@ const restoreAllNamespaces = () =>
         restoreNamespace(element as HTMLElement)
     )
 const restoreNamespace = (namespaceRef: HTMLElement) => {
-    if (namespaceRef && namespaceRef.dataset!.origText) {
+    if (namespaceRef
+        && namespaceRef.dataset!.origText) {
         namespaceRef.textContent = namespaceRef.dataset.origText
         delete namespaceRef.dataset.origText
     }
