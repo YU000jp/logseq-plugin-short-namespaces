@@ -1,3 +1,11 @@
+## [1.7.5](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.7.4...v1.7.5) (2024-03-20)
+
+
+### Bug Fixes
+
+* **bug:** Bug that causes the tooltip to become vertically long, in the sidebar [#29](https://github.com/YU000jp/logseq-plugin-short-namespaces/issues/29) ([2677dcc](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/2677dcc801d64648277179b7418c088a099bb146))
+* **bug:** Revert the new version ([20e7afa](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/20e7afaf32e34a8d192c7991f5a1b2f3c8addeb4)), closes [#29](https://github.com/YU000jp/logseq-plugin-short-namespaces/issues/29)
+
 ## [1.7.3](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.7.2...v1.7.3) (2024-2-3)
 
 
