@@ -13,10 +13,12 @@ body>div#root>div>main>div#app-container>div {
       top: 0;
       left: 0;
       z-index: var(--ls-z-index-level-3);
-      overflow: auto;
+      overflow: visible;
       margin: -.4em auto;
       position: absolute;
-      display: none
+      display: none;
+      height: fit-content;
+      word-break: keep-all;
     }
 
     &:hover::before {
