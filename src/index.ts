@@ -99,7 +99,11 @@ const abbreviateNamespace = (namespaceRef: HTMLElement) => {
         || !namespaceRef.textContent) return
 
     const textString: string = namespaceRef.textContent
+
     if (!textString.includes("/")) return//textに「/」が含まれているかどうか
+    
+    if (logseq.settings!.booleanIgnoreHash === true
+        && textString.startsWith("#")) return //先頭に#がある場合は省略をしない
 
     // Perform collapsing.
     const splitString: Array<string> = textString.split('/')

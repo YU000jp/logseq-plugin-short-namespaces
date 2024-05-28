@@ -31,6 +31,14 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
         default: true,
         description: "default: true",
     },
+    {// 先頭に#がある場合は省略を実行しない
+        key: "booleanIgnoreHash",
+        type: "boolean",
+        title: t("Ignore the abbreviation if the first character is #"),
+        default: true,
+        description: "default: true",
+
+    },
     {
         key: "iconMode",
         type: "enum",

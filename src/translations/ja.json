@@ -3,5 +3,6 @@
     "Enable display the specified icon on the first parent page" :"親ページのアイコンを表示する",
     "Show abbreviations with dots (..) or nothing" :"ドットで省略されたのを示すかどうか",
     "From what level should omit hierarchy?" :"どのレベルから省略するか",
-    "Show First letter of Root page name" :"短縮する文字列の長さを決める"
+    "Show First letter of Root page name" :"短縮する文字列の長さを決める",
+    "Ignore the abbreviation if the first character is #" :"#で始まる場合は省略しない"
 }
