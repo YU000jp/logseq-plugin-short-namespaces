@@ -1,3 +1,15 @@
+# [1.8.0](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.7.5...v1.8.0) (2024-05-28)
+
+
+### Bug Fixes
+
+* **bug:** "If the link wraps over a line in the sidebar, the hover text is squeezed into a tall, one-character wide column" [#29](https://github.com/YU000jp/logseq-plugin-short-namespaces/issues/29) ([215166f](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/215166fa2b66b1e4872763d2b3bc229a12b479a5))
+
+
+### Features
+
+* **Add:** plugin settings > "Ignore the abbreviation if the first character is #" [#33](https://github.com/YU000jp/logseq-plugin-short-namespaces/issues/33) ([f108865](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/f1088652bd32ae9daeb9740e271f122941c56564))
+
 ## [1.7.5](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.7.4...v1.7.5) (2024-03-20)
 
 
