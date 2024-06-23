@@ -1,13 +1,15 @@
 # Logseq Plugin: *Short Namespaces* 🍰
 
-[English](https://github.com/YU000jp/logseq-plugin-short-namespaces) | [日本語](https://github.com/YU000jp/logseq-plugin-short-namespaces/blob/main/readme.ja.md)
 
 - Displays hierarchical links, which tend to be long, by omitting them.
 
-[![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-short-namespaces)](https://github.com/YU000jp/logseq-plugin-short-namespaces/releases)
+<div align="right">
+ 
+[English](https://github.com/YU000jp/logseq-plugin-short-namespaces) | [日本語](https://github.com/YU000jp/logseq-plugin-short-namespaces/blob/main/readme.ja.md) [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-short-namespaces)](https://github.com/YU000jp/logseq-plugin-short-namespaces/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-short-namespaces?color=blue)](https://github.com/YU000jp/logseq-plugin-short-namespaces/LICENSE)
 [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-short-namespaces/total.svg)](https://github.com/YU000jp/logseq-plugin-short-namespaces/releases)
- Published 2023/06/12
+ Published 2023/06/12 <a href="https://www.buymeacoffee.com/yu000japan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a pizza&emoji=🍕&slug=yu000japan&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" /></a>
+</div>
 
 ## Overview
 
@@ -63,9 +65,8 @@ Install from Logseq Marketplace
   1. [Page-tags and Hierarchy plugin](https://github.com/YU000jp/logseq-page-tags-and-hierarchy)
 
 ## Contribution / Prior art / Credit
-1. Script > @[Zyrohex](https://gist.github.com/Zyrohex/9782b737f8f7f7bca7b6cc7e7868d793)
-1. Script > @[Bader](https://discord.com/channels/725182569297215569/896368413243494430/1116515366508711996)
-1. Icon > [icooon-mono.com](https://icooon-mono.com/12668-%e3%82%b1%e3%83%bc%e3%82%ad%e3%81%ae%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b33/)
-1. Author > @[YU000jp](https://github.com/YU000jp)
 
-<a href="https://www.buymeacoffee.com/yu000japan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a pizza&emoji=🍕&slug=yu000japan&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" /></a>
+- Script > @[Zyrohex](https://gist.github.com/Zyrohex/9782b737f8f7f7bca7b6cc7e7868d793)
+- Script > @[Bader](https://discord.com/channels/725182569297215569/896368413243494430/1116515366508711996)
+- Icon > [icooon-mono.com](https://icooon-mono.com/12668-%e3%82%b1%e3%83%bc%e3%82%ad%e3%81%ae%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b33/)
+- Author > @[YU000jp](https://github.com/YU000jp)
