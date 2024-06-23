@@ -1,13 +1,16 @@
 # Logseq Plugin: *Short Namespaces* 🍰
 
-[English](https://github.com/YU000jp/logseq-plugin-short-namespaces) | [日本語](https://github.com/YU000jp/logseq-plugin-short-namespaces/blob/main/readme.ja.md)
 
 - 長くなりがちな、階層をもつリンクを省略して表示します。
 
+<div align="right">
+  
+[English](https://github.com/YU000jp/logseq-plugin-short-namespaces) | [日本語](https://github.com/YU000jp/logseq-plugin-short-namespaces/blob/main/readme.ja.md)
 [![最新リリースバージョン](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-short-namespaces)](https://github.com/YU000jp/logseq-plugin-short-namespaces/releases)
 [![ライセンス](https://img.shields.io/github/license/YU000jp/logseq-plugin-short-namespaces?color=blue)](https://github.com/YU000jp/logseq-plugin-short-namespaces/LICENSE)
 [![ダウンロード](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-short-namespaces/total.svg)](https://github.com/YU000jp/logseq-plugin-short-namespaces/releases)
-公開日: 2023年6月12日
+公開日: 2023年6月12日 <a href="https://www.buymeacoffee.com/yu000japan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a pizza&emoji=🍕&slug=yu000japan&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" /></a>
+</div>
 
 ## 概要
 
@@ -64,9 +67,7 @@ Logseq マーケットプレイスからインストール
 
 ## 貢献 / 先行技術 / クレジット
 
-1. スクリプト > @[Zyrohex](https://gist.github.com/Zyrohex/9782b737f8f7f7bca7b6cc7e7868d793)
-1. スクリプト > @[Bader](https://discord.com/channels/725182569297215569/896368413243494430/1116515366508711996)
-1. アイコン > [icooon-mono.com](https://icooon-mono.com/12668-%e3%82%b1%e3%83%bc%e3%82%ad%e3%81%ae%e3%82%a2%e3%82%a4%e3%82%b33/)
-1. 製作者 > @[YU000jp](https://github.com/YU000jp)
-
-<a href="https://www.buymeacoffee.com/yu000japan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a pizza&emoji=🍕&slug=yu000japan&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" /></a>
+- スクリプト > @[Zyrohex](https://gist.github.com/Zyrohex/9782b737f8f7f7bca7b6cc7e7868d793)
+- スクリプト > @[Bader](https://discord.com/channels/725182569297215569/896368413243494430/1116515366508711996)
+- アイコン > [icooon-mono.com](https://icooon-mono.com/12668-%e3%82%b1%e3%83%bc%e3%82%ad%e3%81%ae%e3%82%a2%e3%82%a4%e3%82%b33/)
+- 製作者 > @[YU000jp](https://github.com/YU000jp)
