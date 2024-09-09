@@ -1,7 +1,9 @@
 # Logseq Plugin: *Short Namespaces* 🍰
 
-
 - 長くなりがちな、階層をもつリンクを省略して表示します。
+
+> [!WARNING]
+>このプラグインはLogseq dbバージョンでは動作しません。
 
 <div align="right">
   

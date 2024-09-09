@@ -1,7 +1,9 @@
 # Logseq Plugin: *Short Namespaces* 🍰
 
-
 - Displays hierarchical links, which tend to be long, by omitting them.
+
+> [!WARNING]
+This plugin does not work with Logseq db version.
 
 <div align="right">
  
