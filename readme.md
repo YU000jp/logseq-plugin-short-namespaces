@@ -33,10 +33,6 @@ Install from Logseq Marketplace
 
      ![image](https://github.com/YU000jp/logseq-plugin-short-namespaces/assets/111847207/c2782452-9254-4cda-9604-5283de136da2)
 
-### Usage
-
-- When this plugin install, the style be applied to journals or the single page , the right sidebar.
-
 ### Plugin Settings
 
 - Show First letter of Root page name: select
