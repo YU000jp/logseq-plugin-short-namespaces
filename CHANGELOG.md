@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.9.0...v1.10.0) (2025-01-11)
+
+
+### Features
+
+* translations ([84a61ba](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/84a61ba081327ee6151b2b5297744c2ec629a581))
+
 # [1.9.0](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.8.0...v1.9.0) (2025-01-11)
 
 
