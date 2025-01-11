@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.8.0...v1.9.0) (2025-01-11)
+
+
+### Features
+
+* **Add:** Gray out the upper hierarchies ([67f06f7](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/67f06f7ecbd93b366b50653137b735c42f863324))
+
 # [1.8.0](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.7.5...v1.8.0) (2024-05-28)
 
 
