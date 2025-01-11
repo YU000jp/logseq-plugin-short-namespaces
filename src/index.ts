@@ -118,7 +118,11 @@ const abbreviateNamespace = (namespaceRef: HTMLElement) => {
         return
     }
     namespaceRef.dataset.origText = textString || ""
-    namespaceRef.textContent = abbreviatedText
+    if (logseq.settings!.booleanGrayOut) {
+        namespaceRef.innerHTML = abbreviatedText // HTMLとして挿入
+    } else {
+        namespaceRef.textContent = abbreviatedText.replace(/<[^>]*>/g, '') // HTMLタグを除去
+    }
     namespaceRef.classList.add("shortNamespaceTooltip")//CSSでtooltipを表示する
 }
 
@@ -147,27 +151,38 @@ const abbreviated = (stringArray: Array<string>, dot: string): string => {
                         logseq.settings!.eliminatesLevels === "3 levels"
                         && (index === arr.length - 2
                             || index === arr.length - 3))
-                ))
+                )) {
+                    // 最後の階層はグレーアウトしない
                     return part
-                else
+                }
+                else {
+                    let abbreviatedPart = ""
                     switch (logseq.settings!.firstLetter) {
                         case "The first letter":
-                            if (part.length <= 1) return part//1文字の場合はdotをつけない
-                            return part.charAt(0) + dot
+                            if (part.length <= 1) abbreviatedPart = part//1文字の場合はdotをつけない
+                            else abbreviatedPart = part.charAt(0) + dot
+                            break
                         case "Abbreviate(..)":
-                            return ".."
+                            abbreviatedPart = ".."
+                            break
                         case "The first 2 letters":
-                            if (part.length <= 2) return part//2文字未満の場合はdotをつけない
-                            return part.substring(0, 2) + dot
+                            if (part.length <= 2) abbreviatedPart = part//2文字未満の場合はdotをつけない
+                            else abbreviatedPart = part.substring(0, 2) + dot
+                            break
                         case "The first 3 letters":
-                            if (part.length <= 3) return part
-                            return part.substring(0, 3) + dot
+                            if (part.length <= 3) abbreviatedPart = part
+                            else abbreviatedPart = part.substring(0, 3) + dot
+                            break
                         case "The first 4 letters":
-                            if (part.length <= 4) return part
-                            return part.substring(0, 4) + dot
+                            if (part.length <= 4) abbreviatedPart = part
+                            else abbreviatedPart = part.substring(0, 4) + dot
+                            break
                         default:
-                            return part
+                            abbreviatedPart = part
                     }
+                    // 親階層をspanでラップ
+                    return `<span class="namespace-parent">${abbreviatedPart}</span>`
+                }
         }).join('/')
     }
 }

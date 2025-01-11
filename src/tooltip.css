@@ -32,3 +32,8 @@ body>div#root>div>main>div#app-container>div {
     white-space: nowrap
   }
 }
+
+.shortNamespaceTooltip .namespace-parent {
+    opacity: 0.6;
+    font-size: small;
+}

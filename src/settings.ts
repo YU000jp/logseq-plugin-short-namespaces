@@ -5,6 +5,14 @@ import { t } from "logseq-l10n" //https://github.com/sethyuan/logseq-l10n
 /* user setting */
 // https://logseq.github.io/plugins/types/SettingSchemaDesc.html
 export const settingsTemplate = (): SettingSchemaDesc[] => [
+
+    {// 上の階層をグレーアウトするかどうか
+        key: "booleanGrayOut",
+        type: "boolean",
+        title: t("Gray out the upper hierarchies"),
+        default: true,
+        description: "default: true",
+    },
     {
         key: "firstLetter",
         type: "enum",
