@@ -1,0 +1,18 @@
+{
+  "⚠️need to restart Logseq to take effect": "⚠️Etkili olması için Logseq'i yeniden başlatmanız gerekiyor",
+  "Enable display the specified icon on the first parent page": "Belirtilen simgenin ilk ana sayfada görüntülenmesini etkinleştir",
+  "Show abbreviations with dots (..) or nothing": "Kısaltmaları nokta (..) ile gösterme veya hiçbir şey gösterme",
+  "From what level should omit hierarchy?": "Hangi düzeyden hiyerarşi çıkarılmalıdır?",
+  "Number of characters to abbreviate the hierarchy name": "Hiyerarşi adını kısaltmak için karakter sayısı",
+  "Ignore the abbreviation if the first character is #": "İlk karakter ise kısaltmayı yok sayın. #",
+  "Gray out the upper hierarchies": "Üst hiyerarşileri grileştirin",
+  "Abbreviate with dots(..)": "Noktalarla kısaltın(..)",
+  "The first letter": "İlk mektup",
+  "The first 2 letters": "İlk 2 harf",
+  "The first 3 letters": "İlk 3 harf",
+  "The first 4 letters": "İlk 4 harf",
+  "All levels": "Tüm seviyeler",
+  "1 level": "Seviye 1",
+  "2 levels": "2 seviye",
+  "3 levels": "3 seviye"
+}

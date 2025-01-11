@@ -1,0 +1,18 @@
+{
+  "⚠️need to restart Logseq to take effect": "⚠️je potrebné reštartovať Logseq, aby sa prejavil",
+  "Enable display the specified icon on the first parent page": "Povoliť zobrazenie zadanej ikony na prvej nadradenej stránke",
+  "Show abbreviations with dots (..) or nothing": "Zobraziť skratky s bodkami (..) alebo ničím",
+  "From what level should omit hierarchy?": "Z akej úrovne by sa mala hierarchia vynechať?",
+  "Number of characters to abbreviate the hierarchy name": "Počet znakov na skrátenie názvu hierarchie",
+  "Ignore the abbreviation if the first character is #": "Ignorujte skratku, ak je prvý znak #",
+  "Gray out the upper hierarchies": "Sivé horné hierarchie",
+  "Abbreviate with dots(..)": "Skratka s bodkami(..)",
+  "The first letter": "Prvé písmeno",
+  "The first 2 letters": "Prvé 2 písmená",
+  "The first 3 letters": "Prvé 3 písmená",
+  "The first 4 letters": "Prvé 4 písmená",
+  "All levels": "Všetky úrovne",
+  "1 level": "1 úroveň",
+  "2 levels": "2 úrovne",
+  "3 levels": "3 úrovne"
+}

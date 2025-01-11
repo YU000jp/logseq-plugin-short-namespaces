@@ -1,0 +1,18 @@
+{
+  "⚠️need to restart Logseq to take effect": "⚠️må starte Logseq på nytt for å tre i kraft",
+  "Enable display the specified icon on the first parent page": "Aktiver visning av det angitte ikonet på den første malsiden",
+  "Show abbreviations with dots (..) or nothing": "Vis forkortelser med prikker (..) eller ingenting",
+  "From what level should omit hierarchy?": "Fra hvilket nivå skal hierarki utelates?",
+  "Number of characters to abbreviate the hierarchy name": "Antall tegn som skal forkortes hierarkinavnet",
+  "Ignore the abbreviation if the first character is #": "Ignorer forkortelsen hvis det første tegnet er #",
+  "Gray out the upper hierarchies": "Grå ut de øvre hierarkiene",
+  "Abbreviate with dots(..)": "Forkort med prikker(..)",
+  "The first letter": "Den første bokstaven",
+  "The first 2 letters": "De første 2 bokstavene",
+  "The first 3 letters": "De første 3 bokstavene",
+  "The first 4 letters": "De første 4 bokstavene",
+  "All levels": "Alle nivåer",
+  "1 level": "1 nivå",
+  "2 levels": "2 nivåer",
+  "3 levels": "3 nivåer"
+}

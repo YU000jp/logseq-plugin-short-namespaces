@@ -1,0 +1,18 @@
+{
+  "⚠️need to restart Logseq to take effect": "⚠️необходимо перезапустить Logseq, чтобы он вступил в силу",
+  "Enable display the specified icon on the first parent page": "Включите отображение указанного значка на первой родительской странице",
+  "Show abbreviations with dots (..) or nothing": "Показывать аббревиатуры точками (..) или ничего не делать",
+  "From what level should omit hierarchy?": "С какого уровня следует опускать иерархию?",
+  "Number of characters to abbreviate the hierarchy name": "Количество символов для сокращения имени иерархии",
+  "Ignore the abbreviation if the first character is #": "Игнорируйте аббревиатуру, если первый символ является #",
+  "Gray out the upper hierarchies": "Выделите серым цветом верхние иерархии",
+  "Abbreviate with dots(..)": "Сокращение точками (..)",
+  "The first letter": "Первая буква",
+  "The first 2 letters": "Первые 2 буквы",
+  "The first 3 letters": "Первые 3 буквы",
+  "The first 4 letters": "Первые 4 буквы",
+  "All levels": "Все уровни",
+  "1 level": "1 уровень",
+  "2 levels": "2 уровня",
+  "3 levels": "3 уровня"
+}

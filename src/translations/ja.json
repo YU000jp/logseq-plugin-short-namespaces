@@ -1,8 +1,18 @@
 {
-    "⚠️need to restart Logseq to take effect" :"⚠️Logseqの再起動が必要です",
-    "Enable display the specified icon on the first parent page" :"親ページのアイコンを表示する",
-    "Show abbreviations with dots (..) or nothing" :"ドットで省略されたのを示すかどうか",
-    "From what level should omit hierarchy?" :"どのレベルから省略するか",
-    "Show First letter of Root page name" :"短縮する文字列の長さを決める",
-    "Ignore the abbreviation if the first character is #" :"#で始まる場合は省略しない"
+  "⚠️need to restart Logseq to take effect": "⚠️Logseqの再起動が必要です",
+  "Enable display the specified icon on the first parent page": "親ページに指定したアイコンを表示するかどうか",
+  "Show abbreviations with dots (..) or nothing": "ドットで省略されたのを示すかどうか",
+  "From what level should omit hierarchy?": "何階層目から省略するか",
+  "Number of characters to abbreviate the hierarchy name": "階層名を省略する文字数",
+  "Ignore the abbreviation if the first character is #": "階層名の先頭が#の場合は省略しない",
+  "Gray out the upper hierarchies": "上位階層をグレーアウトするかどうか",
+  "Abbreviate with dots(..)": "ドットで省略する",
+  "The first letter": "1文字",
+  "The first 2 letters": "2文字",
+  "The first 3 letters": "3文字",
+  "The first 4 letters": "4文字",
+  "All levels": "全ての上位階層",
+  "1 level": "1階層目",
+  "2 levels": "2階層目",
+  "3 levels": "3階層目"
 }

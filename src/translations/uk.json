@@ -1,0 +1,18 @@
+{
+  "⚠️need to restart Logseq to take effect": "⚠️потрібно перезапустити Logseq, щоб він вступив в силу",
+  "Enable display the specified icon on the first parent page": "Увімкніть відображення вказаної піктограми на першій сторінці шаблону",
+  "Show abbreviations with dots (..) or nothing": "Показувати абревіатури з крапками (..) або нічого",
+  "From what level should omit hierarchy?": "З якого рівня слід опускати ієрархію?",
+  "Number of characters to abbreviate the hierarchy name": "Кількість символів для скорочення назви ієрархії",
+  "Ignore the abbreviation if the first character is #": "Ігноруйте абревіатуру, якщо перший символ #",
+  "Gray out the upper hierarchies": "Витіснення верхніх ієрархій",
+  "Abbreviate with dots(..)": "Абревіатура з крапками(..)",
+  "The first letter": "Перший лист",
+  "The first 2 letters": "Перші 2 літери",
+  "The first 3 letters": "Перші 3 літери",
+  "The first 4 letters": "Перші 4 літери",
+  "All levels": "Всі рівні",
+  "1 level": "1 рівень",
+  "2 levels": "2 рівні",
+  "3 levels": "3 рівні"
+}

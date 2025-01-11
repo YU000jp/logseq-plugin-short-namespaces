@@ -17,10 +17,18 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
         key: "firstLetter",
         type: "enum",
         enumChoices: ["Abbreviate(..)", "The first letter", "The first 2 letters", "The first 3 letters", "The first 4 letters"],
-        // ルートページ名の先頭文字を表示
-        title: t("Show First letter of Root page name"),
+        // 階層名の文字列の省略文字数
+        title: t("Number of characters to abbreviate the hierarchy name"),
         default: "The first 2 letters",
-        description: "default: The first 2 letters",
+        description: `
+        default: The first 2 letters
+        
+        ${t("Abbreviate with dots(..)")}
+        ${t("The first letter")}
+        ${t("The first 2 letters")}
+        ${t("The first 3 letters")}
+        ${t("The first 4 letters")}
+        `,
     },
     {
         key: "eliminatesLevels",
@@ -29,7 +37,14 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
         // 何階層以上の階層を省略するか
         title: t("From what level should omit hierarchy?"),
         default: "2 levels",
-        description: "default: 2 levels",
+        description: `
+        default: 2 levels
+
+        ${t("All levels")}
+        ${t("1 level")}
+        ${t("2 levels")}
+        ${t("3 levels")}
+        `,
     },
     {
         key: "booleanUseDot",

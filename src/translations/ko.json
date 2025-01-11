@@ -1,0 +1,18 @@
+{
+  "⚠️need to restart Logseq to take effect": "⚠️적용하려면 Logseq를 다시 시작해야 합니다.",
+  "Enable display the specified icon on the first parent page": "첫 번째 상위 페이지에 지정된 아이콘을 표시할 수 있습니다.",
+  "Show abbreviations with dots (..) or nothing": "약어를 점(..) 또는 아무 것도 표시하지 않음",
+  "From what level should omit hierarchy?": "어떤 수준에서 계층 구조를 생략해야합니까?",
+  "Number of characters to abbreviate the hierarchy name": "계층 이름을 축약할 문자 수",
+  "Ignore the abbreviation if the first character is #": "첫 번째 문자가 다음과 같은 경우 약어를 무시합니다. #",
+  "Gray out the upper hierarchies": "상위 계층을 회색으로 표시합니다.",
+  "Abbreviate with dots(..)": "점으로 축약(..)",
+  "The first letter": "첫 글자",
+  "The first 2 letters": "처음 2글자",
+  "The first 3 letters": "처음 3글자",
+  "The first 4 letters": "처음 4글자",
+  "All levels": "모든 레벨",
+  "1 level": "1 수준",
+  "2 levels": "2 단계",
+  "3 levels": "3 단계"
+}

@@ -1,0 +1,18 @@
+{
+  "⚠️need to restart Logseq to take effect": "⚠️moet Logseq herbegin om in werking te tree",
+  "Enable display the specified icon on the first parent page": "Aktiveer vertoon die gespesifiseerde ikoon op die eerste ouerbladsy",
+  "Show abbreviations with dots (..) or nothing": "Wys afkortings met kolletjies (..) of niks",
+  "From what level should omit hierarchy?": "Vanaf watter vlak moet hiërargie weggelaat word?",
+  "Number of characters to abbreviate the hierarchy name": "Aantal karakters om die hiërargienaam af te kort",
+  "Ignore the abbreviation if the first character is #": "Ignoreer die afkorting as die eerste karakter is #",
+  "Gray out the upper hierarchies": "Grys die boonste hiërargieë uit",
+  "Abbreviate with dots(..)": "Kort af met kolletjies (..)",
+  "The first letter": "Die eerste brief",
+  "The first 2 letters": "Die eerste 2 letters",
+  "The first 3 letters": "Die eerste 3 letters",
+  "The first 4 letters": "Die eerste 4 letters",
+  "All levels": "Alle vlakke",
+  "1 level": "1 vlak",
+  "2 levels": "2 vlakke",
+  "3 levels": "3 vlakke"
+}

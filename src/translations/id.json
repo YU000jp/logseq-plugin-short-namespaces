@@ -1,0 +1,18 @@
+{
+  "⚠️need to restart Logseq to take effect": "⚠️perlu memulai ulang Logseq agar berlaku",
+  "Enable display the specified icon on the first parent page": "Aktifkan tampilkan ikon yang ditentukan pada halaman induk pertama",
+  "Show abbreviations with dots (..) or nothing": "Tampilkan singkatan dengan titik (..) atau tidak sama sekali",
+  "From what level should omit hierarchy?": "Dari tingkat apa harus menghilangkan hierarki?",
+  "Number of characters to abbreviate the hierarchy name": "Jumlah karakter untuk menyingkat nama hierarki",
+  "Ignore the abbreviation if the first character is #": "Abaikan singkatan jika karakter pertama adalah #",
+  "Gray out the upper hierarchies": "Abu-abu hierarki atas",
+  "Abbreviate with dots(..)": "Singkatan dengan titik(..)",
+  "The first letter": "Huruf pertama",
+  "The first 2 letters": "2 huruf pertama",
+  "The first 3 letters": "3 huruf pertama",
+  "The first 4 letters": "4 huruf pertama",
+  "All levels": "Semua level",
+  "1 level": "Tingkat 1",
+  "2 levels": "2 tingkat",
+  "3 levels": "3 tingkat"
+}

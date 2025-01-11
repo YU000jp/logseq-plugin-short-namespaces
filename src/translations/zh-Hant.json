@@ -1,0 +1,18 @@
+{
+  "⚠️need to restart Logseq to take effect": "⚠️ 需要重新啟動Logseq才能生效",
+  "Enable display the specified icon on the first parent page": "啟用在第一個父頁面上顯示指定的圖示",
+  "Show abbreviations with dots (..) or nothing": "顯示帶點 （..） 的縮寫或無點顯示",
+  "From what level should omit hierarchy?": "應該從哪個級別省略層次結構？",
+  "Number of characters to abbreviate the hierarchy name": "要縮寫層次結構名稱的字元數",
+  "Ignore the abbreviation if the first character is #": "如果第一個字元為#",
+  "Gray out the upper hierarchies": "使上層層次結構變灰",
+  "Abbreviate with dots(..)": "用點縮寫 （..）",
+  "The first letter": "第一個字母",
+  "The first 2 letters": "前2個字母",
+  "The first 3 letters": "前3個字母",
+  "The first 4 letters": "前 4 個字母",
+  "All levels": "所有級別",
+  "1 level": "1 級",
+  "2 levels": "2 個級別",
+  "3 levels": "3 個級別"
+}

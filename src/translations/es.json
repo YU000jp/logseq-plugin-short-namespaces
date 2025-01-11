@@ -1,0 +1,18 @@
+{
+  "⚠️need to restart Logseq to take effect": "⚠️es necesario reiniciar Logseq para que surta efecto",
+  "Enable display the specified icon on the first parent page": "Habilite la visualización del icono especificado en la primera página principal",
+  "Show abbreviations with dots (..) or nothing": "Mostrar abreviaturas con puntos (..) o nada",
+  "From what level should omit hierarchy?": "¿A partir de qué nivel se debe omitir la jerarquía?",
+  "Number of characters to abbreviate the hierarchy name": "Número de caracteres para abreviar el nombre de la jerarquía",
+  "Ignore the abbreviation if the first character is #": "Omita la abreviatura si el primer carácter es #",
+  "Gray out the upper hierarchies": "Atenuar las jerarquías superiores",
+  "Abbreviate with dots(..)": "Abreviar con puntos(..)",
+  "The first letter": "La primera letra",
+  "The first 2 letters": "Las 2 primeras letras",
+  "The first 3 letters": "Las 3 primeras letras",
+  "The first 4 letters": "Las primeras 4 letras",
+  "All levels": "Todos los niveles",
+  "1 level": "1 nivel",
+  "2 levels": "2 niveles",
+  "3 levels": "3 niveles"
+}
