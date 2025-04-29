@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.10.0...v1.10.1) (2025-04-29)
+
+
+### Performance Improvements
+
+* **ref:** Improved processing performance through the use of queries ([1bed142](https://github.com/YU000jp/logseq-plugin-short-namespaces/commit/1bed14207c364bca68157f374fb4dc494f3d06f2))
+
 # [1.10.0](https://github.com/YU000jp/logseq-plugin-short-namespaces/compare/v1.9.0...v1.10.0) (2025-01-11)
 
 
