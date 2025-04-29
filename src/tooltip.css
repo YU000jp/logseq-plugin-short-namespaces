@@ -1,4 +1,4 @@
-body>div#root>div>main>div#app-container>div {
+#app-container>div {
   & .shortNamespaceTooltip {
     position: relative;
     cursor: pointer;
@@ -27,13 +27,13 @@ body>div#root>div>main>div#app-container>div {
       display: block;
     }
   }
+}
 
-  & div#main-content-container .shortNamespaceTooltip::before {
-    white-space: nowrap
-  }
+#main-content-container .shortNamespaceTooltip::before {
+  white-space: nowrap
 }
 
 .shortNamespaceTooltip .namespace-parent {
-    opacity: 0.6;
-    font-size: small;
+  opacity: 0.6;
+  font-size: small;
 }

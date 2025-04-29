@@ -4,6 +4,7 @@ import { setup as l10nSetup } from "logseq-l10n" //https://github.com/sethyuan/l
 import ja from "./translations/ja.json"
 import fileTooltipCSS from "./tooltip.css?inline"
 import { settingsTemplate } from './settings'
+import { getPageProperties } from './query/advancedQuery'
 
 
 /* main */
@@ -101,7 +102,7 @@ const abbreviateNamespace = (namespaceRef: HTMLElement) => {
     const textString: string = namespaceRef.textContent
 
     if (!textString.includes("/")) return//textに「/」が含まれているかどうか
-    
+
     if (logseq.settings!.booleanIgnoreHash === true
         && textString.startsWith("#")) return //先頭に#がある場合は省略をしない
 
@@ -190,14 +191,13 @@ const abbreviated = (stringArray: Array<string>, dot: string): string => {
 const getIcon = async (namespaceRef, parent: string): Promise<void> => {
     //parentの先頭に#ある場合は削除
     if (parent.startsWith("#")) parent = parent.slice(1)
-    const page = await logseq.Editor.getPage(parent) as { properties: PageEntity["properties"] } || null
-    if (!namespaceRef.dataset.icon
-        && page
-        && page.properties
-        && page.properties!.icon) {
-        //非同期処理のため必要。既にアイコンがある場合は処理しない
-        namespaceRef.insertAdjacentHTML("beforebegin", page.properties!.icon as string)
-        namespaceRef.dataset.icon = page.properties!.icon as string
+    const properties = await getPageProperties(parent) as PageEntity["properties"] || null
+    if (!namespaceRef.dataset.icon //非同期処理のため必要。既にアイコンがある場合は処理しない
+        && properties
+        && properties.icon) {
+        
+        namespaceRef.insertAdjacentHTML("beforebegin", properties.icon as string)
+        namespaceRef.dataset.icon = properties.icon as string
     }
 }
 
@@ -213,26 +213,23 @@ const SetLinksIconWithoutHierarchy = async (elementRef: HTMLElement): Promise<vo
 
     if (text.startsWith("#")) text = text.slice(1)
 
-    const page = await logseq.Editor.getPage(text) as {
-        properties: PageEntity["properties"]
-    } || null
-    if (!page
-        || !page.properties
-        || page.properties!.icon === undefined) {
+    const properties = await getPageProperties(text) as PageEntity["properties"] || null
+    if (!properties
+        || properties!.icon === undefined) {
         elementRef.dataset.icon = "none"
         return
     }
     if (elementRef.dataset.icon) return//非同期処理のため必要。既にアイコンがある場合は処理しない
 
-    elementRef.insertAdjacentHTML("beforebegin", page.properties.icon as string)
-    elementRef.dataset.icon = page.properties.icon as string
+    elementRef.insertAdjacentHTML("beforebegin", properties.icon as string)
+    elementRef.dataset.icon = properties.icon as string
 }
 
 
 //元に戻す
 const restoreAllNamespaces = () =>
     parent.document.body.querySelectorAll(
-        'div#root>div>main div:is(#main-content-container,#right-sidebar) a[data-ref*="/"][data-orig-text], div#root>div>main div#left-sidebar li[data-ref*="/"] span.page-title[data-orig-text]'
+        ':is(#main-content-container,#right-sidebar) a[data-ref*="/"][data-orig-text], #left-sidebar li[data-ref*="/"] span.page-title[data-orig-text]'
     ).forEach((element) =>
         restoreNamespace(element as HTMLElement)
     )
