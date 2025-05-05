@@ -3,7 +3,7 @@
 - Displays hierarchical links, which tend to be long, by omitting them.
 
 > [!NOTE]
-This plugin works in Logseq db version.
+This plugin works in Logseq db version. (md graph only)
 
 <div align="right">
  
