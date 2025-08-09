@@ -11,7 +11,7 @@
 [![最新リリースバージョン](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-short-namespaces)](https://github.com/YU000jp/logseq-plugin-short-namespaces/releases)
 [![ライセンス](https://img.shields.io/github/license/YU000jp/logseq-plugin-short-namespaces?color=blue)](https://github.com/YU000jp/logseq-plugin-short-namespaces/LICENSE)
 [![ダウンロード](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-short-namespaces/total.svg)](https://github.com/YU000jp/logseq-plugin-short-namespaces/releases)
-公開日: 2023年6月12日 <a href="https://www.buymeacoffee.com/yu000japan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a pizza&emoji=🍕&slug=yu000japan&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" /></a>
+公開日: 2023年6月12日
 </div>
 
 ## 概要
